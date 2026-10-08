@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Attendance | Atluri ASCEND™</title>
+
+    <!-- Shared application styles -->
+    <link
+        rel="stylesheet"
+        href="../../css/style.css"
+    >
+
+    <!-- Employee portal layout -->
+    <link
+        rel="stylesheet"
+        href="css/employee.css"
+    >
+
+    <!-- Attendance page -->
+    <link
+        rel="stylesheet"
+        href="css/attendance.css"
+    >
+
+</head>
+
+
+<body>
+
+<div class="employee-app">
+
+    <!-- =========================================
+         SIDEBAR
+    ========================================== -->
+
+    <aside
+        class="employee-sidebar"
+        id="employeeSidebar"
+    >
+
+        <div class="employee-brand">
+
+            <img
+                src="../../assets/images/atluri-logo.jpg"
+                alt="Atluri ASCEND"
+            >
+
+            <div class="employee-brand-text">
+
+                <strong>
+                    Atluri ASCEND™
+                </strong>
+
+                <span>
+                    Employee Portal
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <nav class="employee-nav">
+
+            <a
+                href="dashboard.html"
+                class="employee-nav-item"
+            >
+                <span class="nav-symbol">⌂</span>
+                <strong>Dashboard</strong>
+            </a>
+
+
+            <a
+                href="scanner.html"
+                class="employee-nav-item"
+            >
+                <span class="nav-symbol">▣</span>
+                <strong>Scan QR</strong>
+            </a>
+
+
+            <a
+                href="attendance.html"
+                class="employee-nav-item active"
+            >
+                <span class="nav-symbol">◷</span>
+                <strong>My Attendance</strong>
+            </a>
+
+
+            <a
+                href="profile.html"
+                class="employee-nav-item"
+            >
+                <span class="nav-symbol">◉</span>
+                <strong>My Profile</strong>
+            </a>
+
+        </nav>
+
+
+        <div class="employee-sidebar-footer">
+
+            <div class="secure-badge">
+
+                <span class="secure-icon">
+                    ⛨
+                </span>
+
+                <div>
+
+                    <strong>
+                        Secure Access
+                    </strong>
+
+                    <small>
+                        Atluri ASCEND™
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="employee-logout"
+                id="logoutButton"
+            >
+
+                <span>
+                    ↪
+                </span>
+
+                <span>
+                    Sign Out
+                </span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================================
+         MAIN
+    ========================================== -->
+
+    <main class="employee-main">
+
+
+        <!-- =====================================
+             TOPBAR
+        ====================================== -->
+
+        <header class="employee-topbar">
+
+            <div class="topbar-mobile-left">
+
+                <button
+                    type="button"
+                    class="employee-menu-button"
+                    id="mobileMenuButton"
+                    aria-label="Open navigation"
+                >
+                    ☰
+                </button>
+
+
+                <div>
+
+                    <span>
+                        Employee Portal
+                    </span>
+
+                    <h1>
+                        My Attendance
+                    </h1>
+
+                </div>
+
+            </div>
+
+
+            <div class="employee-topbar-right">
+
+                <div class="employee-date">
+
+                    <span>
+                        Today
+                    </span>
+
+                    <strong id="currentDate">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="employee-user">
+
+                    <div
+                        class="employee-avatar"
+                        id="employeeAvatar"
+                    >
+                        E
+                    </div>
+
+
+                    <div class="employee-user-details">
+
+                        <strong id="currentUsername">
+                            Employee
+                        </strong>
+
+                        <span>
+                            Employee
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =====================================
+             CONTENT
+        ====================================== -->
+
+        <section class="attendance-content">
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="attendance-page-header">
+
+                <div>
+
+                    <span class="attendance-eyebrow">
+                        Attendance Records
+                    </span>
+
+                    <h2>
+                        My Attendance
+                    </h2>
+
+                    <p>
+                        View your check-in, check-out and
+                        working time history.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="refresh-button"
+                    id="refreshButton"
+                >
+
+                    <span class="refresh-icon">
+                        ↻
+                    </span>
+
+                    Refresh
+
+                </button>
+
+            </div>
+
+
+            <!-- =================================
+                 SUMMARY
+            ================================== -->
+
+            <div class="attendance-summary-grid">
+
+
+                <div class="attendance-summary-card">
+
+                    <div class="summary-icon">
+                        ◷
+                    </div>
+
+                    <div class="summary-content">
+
+                        <span>
+                            Total Records
+                        </span>
+
+                        <strong id="totalRecords">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="attendance-summary-card">
+
+                    <div class="summary-icon summary-success">
+                        ✓
+                    </div>
+
+                    <div class="summary-content">
+
+                        <span>
+                            Present Days
+                        </span>
+
+                        <strong id="presentDays">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="attendance-summary-card">
+
+                    <div class="summary-icon summary-warning">
+                        !
+                    </div>
+
+                    <div class="summary-content">
+
+                        <span>
+                            Late Arrivals
+                        </span>
+
+                        <strong id="lateDays">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="attendance-summary-card">
+
+                    <div class="summary-icon summary-time">
+                        ⏱
+                    </div>
+
+                    <div class="summary-content">
+
+                        <span>
+                            Total Hours
+                        </span>
+
+                        <strong id="totalHours">
+                            0h
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================
+                 TODAY STATUS
+            ================================== -->
+
+            <div class="current-attendance-card">
+
+                <div class="current-status-left">
+
+                    <div
+                        class="current-status-icon"
+                        id="currentStatusIcon"
+                    >
+                        ✓
+                    </div>
+
+
+                    <div>
+
+                        <span class="attendance-eyebrow">
+                            Today's Status
+                        </span>
+
+                        <h3 id="currentStatusTitle">
+                            Loading...
+                        </h3>
+
+                        <p id="currentStatusMessage">
+                            Checking today's attendance.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="current-status-time">
+
+                    <span>
+                        Today's Check-In
+                    </span>
+
+                    <strong id="todayCheckIn">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="current-status-time">
+
+                    <span>
+                        Today's Check-Out
+                    </span>
+
+                    <strong id="todayCheckOut">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================
+                 ATTENDANCE TABLE
+            ================================== -->
+
+            <div class="attendance-table-card">
+
+                <div class="attendance-table-header">
+
+                    <div>
+
+                        <span class="attendance-eyebrow">
+                            History
+                        </span>
+
+                        <h3>
+                            Attendance History
+                        </h3>
+
+                    </div>
+
+
+                    <span
+                        class="record-count"
+                        id="recordCount"
+                    >
+                        0 records
+                    </span>
+
+                </div>
+
+
+                <div class="attendance-table-wrapper">
+
+                    <table class="attendance-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Date
+                                </th>
+
+                                <th>
+                                    Check In
+                                </th>
+
+                                <th>
+                                    Check Out
+                                </th>
+
+                                <th>
+                                    Working Time
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Attendance
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="attendanceTableBody">
+
+                            <tr>
+
+                                <td
+                                    colspan="6"
+                                    class="table-loading"
+                                >
+
+                                    <div class="loading-spinner"></div>
+
+                                    Loading attendance...
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- EMPTY STATE -->
+
+                <div
+                    class="attendance-empty"
+                    id="attendanceEmpty"
+                    hidden
+                >
+
+                    <div class="empty-icon">
+                        ◷
+                    </div>
+
+                    <h3>
+                        No attendance records
+                    </h3>
+
+                    <p>
+                        Your attendance history will appear
+                        here after your first check-in.
+                    </p>
+
+                    <a
+                        href="scanner.html"
+                        class="scan-now-button"
+                    >
+                        Scan Entrance QR
+                    </a>
+
+                </div>
+
+
+                <!-- ERROR STATE -->
+
+                <div
+                    class="attendance-error"
+                    id="attendanceError"
+                    hidden
+                >
+
+                    <div class="error-icon">
+                        !
+                    </div>
+
+                    <h3>
+                        Unable to load attendance
+                    </h3>
+
+                    <p id="attendanceErrorMessage">
+                        Something went wrong while loading
+                        your attendance records.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="retry-button"
+                        id="retryButton"
+                    >
+                        Try Again
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================
+                 INFORMATION
+            ================================== -->
+
+            <div class="attendance-info-card">
+
+                <div class="info-icon">
+                    ⓘ
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Attendance information
+                    </strong>
+
+                    <p>
+                        Your attendance is recorded when you
+                        scan the temporary entrance QR code.
+                        The system automatically records
+                        check-in and check-out times and
+                        calculates your working duration.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             FOOTER
+        ====================================== -->
+
+        <footer class="employee-footer">
+
+            <span>
+                © 2026 Atluri ASCEND™
+            </span>
+
+            <span>
+                Employee Attendance Management System
+            </span>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================== -->
+
+<script src="../../js/config.js"></script>
+
+<script src="../../js/api.js"></script>
+
+<script src="../../js/auth.js"></script>
+
+<script src="js/attendance.js"></script>
+
+
+</body>
+
+</html>

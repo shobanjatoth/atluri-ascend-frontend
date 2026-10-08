@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reports | Atluri ASCEND™</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/reports.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+
+<body>
+
+<div class="app-shell">
+
+    <!-- ======================================================
+         SIDEBAR
+         ====================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-brand">
+
+            <img
+                src="../assets/images/atluri-logo.png"
+                alt="Atluri ASCEND"
+                class="sidebar-logo"
+            >
+
+            <div class="brand-text">
+
+                <h2>Atluri ASCEND™</h2>
+
+                <span>Admin Portal</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- Navigation -->
+
+        <nav class="sidebar-nav">
+
+            <a
+                href="../index.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="employees.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">♙</span>
+                <span>Employees</span>
+            </a>
+
+
+            <a
+                href="departments.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">▦</span>
+                <span>Departments</span>
+            </a>
+
+
+            <a
+                href="attendance.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">✓</span>
+                <span>Attendance</span>
+            </a>
+
+
+            <a
+                href="qr-access.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">▣</span>
+                <span>QR Access</span>
+            </a>
+
+
+            <a
+                href="reports.html"
+                class="nav-item active"
+            >
+                <span class="nav-icon">▤</span>
+                <span>Reports</span>
+            </a>
+
+
+            <a
+                href="audit-logs.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">◷</span>
+                <span>Audit Logs</span>
+            </a>
+
+        </nav>
+
+
+        <!-- Sidebar Footer -->
+
+        <div class="sidebar-footer">
+
+            <div class="sidebar-footer-line"></div>
+
+            <div class="sidebar-footer-content">
+
+                <span>Secure Attendance</span>
+
+                <small>
+                    Atluri ASCEND™
+                </small>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ======================================================
+         MAIN CONTENT
+         ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- ==================================================
+             TOPBAR
+             ================================================== -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    type="button"
+                    class="mobile-menu-button"
+                    id="mobileMenuButton"
+                >
+                    ☰
+                </button>
+
+
+                <div>
+
+                    <span class="topbar-label">
+                        Management
+                    </span>
+
+                    <h1>
+                        Reports
+                    </h1>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <div class="topbar-date">
+
+                    <span>Today</span>
+
+                    <strong id="currentDate">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="admin-profile">
+
+                    <div class="admin-avatar">
+                        A
+                    </div>
+
+                    <div class="admin-info">
+
+                        <strong id="currentUsername">
+                            Admin
+                        </strong>
+
+                        <span>
+                            Administrator
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="logout-button"
+                    id="logoutButton"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- ==================================================
+             PAGE CONTENT
+             ================================================== -->
+
+        <section class="page-content">
+
+
+            <!-- ==================================================
+                 PAGE HEADER
+                 ================================================== -->
+
+            <div class="reports-page-header">
+
+                <div>
+
+                    <span class="section-eyebrow">
+                        Attendance Intelligence
+                    </span>
+
+                    <h2>
+                        Reports &amp; Exports
+                    </h2>
+
+                    <p>
+                        Generate attendance and workforce reports
+                        for a selected date range.
+                    </p>
+
+                </div>
+
+
+                <div class="reports-header-status">
+
+                    <span
+                        class="reports-status-dot"
+                        id="reportsStatusDot"
+                    ></span>
+
+                    <span id="reportsStatus">
+                        Ready
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================================================
+                 REPORT FILTER CARD
+                 ================================================== -->
+
+            <div class="report-filter-card">
+
+                <div class="report-filter-heading">
+
+                    <div>
+
+                        <span class="section-eyebrow">
+                            Report Filters
+                        </span>
+
+                        <h3>
+                            Select Report Period
+                        </h3>
+
+                    </div>
+
+                    <span class="filter-hint">
+                        Choose a date range to generate your report.
+                    </span>
+
+                </div>
+
+
+                <div class="report-filter-form">
+
+
+                    <!-- Start Date -->
+
+                    <div class="filter-field">
+
+                        <label for="startDate">
+                            Start Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="startDate"
+                            name="startDate"
+                        >
+
+                    </div>
+
+
+                    <!-- End Date -->
+
+                    <div class="filter-field">
+
+                        <label for="endDate">
+                            End Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="endDate"
+                            name="endDate"
+                        >
+
+                    </div>
+
+
+                    <!-- Department -->
+
+                    <div class="filter-field">
+
+                        <label for="departmentFilter">
+                            Department
+                        </label>
+
+                        <select
+                            id="departmentFilter"
+                            name="departmentFilter"
+                        >
+
+                            <option value="">
+                                All Departments
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Employee -->
+
+                    <div class="filter-field">
+
+                        <label for="employeeFilter">
+                            Employee
+                        </label>
+
+                        <select
+                            id="employeeFilter"
+                            name="employeeFilter"
+                        >
+
+                            <option value="">
+                                All Employees
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Apply -->
+
+                    <div class="filter-action">
+
+                        <button
+                            type="button"
+                            id="applyReportFilter"
+                            class="primary-report-button"
+                        >
+                            <span>↻</span>
+                            Generate Report
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Quick Date Filters -->
+
+                <div class="quick-date-filters">
+
+                    <span>
+                        Quick range:
+                    </span>
+
+                    <button
+                        type="button"
+                        class="quick-date-button"
+                        data-range="today"
+                    >
+                        Today
+                    </button>
+
+                    <button
+                        type="button"
+                        class="quick-date-button"
+                        data-range="yesterday"
+                    >
+                        Yesterday
+                    </button>
+
+                    <button
+                        type="button"
+                        class="quick-date-button"
+                        data-range="week"
+                    >
+                        This Week
+                    </button>
+
+                    <button
+                        type="button"
+                        class="quick-date-button"
+                        data-range="month"
+                    >
+                        This Month
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================================================
+                 REPORT SUMMARY
+                 ================================================== -->
+
+            <div class="report-summary-grid">
+
+
+                <!-- Total Records -->
+
+                <div class="report-summary-card">
+
+                    <div class="summary-card-icon">
+                        #
+                    </div>
+
+                    <div class="summary-card-content">
+
+                        <span>
+                            Attendance Records
+                        </span>
+
+                        <strong id="totalRecords">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Present -->
+
+                <div class="report-summary-card">
+
+                    <div class="summary-card-icon present">
+                        ✓
+                    </div>
+
+                    <div class="summary-card-content">
+
+                        <span>
+                            Present
+                        </span>
+
+                        <strong id="presentCount">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Late -->
+
+                <div class="report-summary-card">
+
+                    <div class="summary-card-icon late">
+                        !
+                    </div>
+
+                    <div class="summary-card-content">
+
+                        <span>
+                            Late Arrivals
+                        </span>
+
+                        <strong id="lateCount">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Completed -->
+
+                <div class="report-summary-card">
+
+                    <div class="summary-card-icon completed">
+                        ⏱
+                    </div>
+
+                    <div class="summary-card-content">
+
+                        <span>
+                            Completed Sessions
+                        </span>
+
+                        <strong id="completedCount">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================================================
+                 EXPORT OPTIONS
+                 ================================================== -->
+
+            <div class="report-section-heading">
+
+                <div>
+
+                    <span class="section-eyebrow">
+                        Export Center
+                    </span>
+
+                    <h3>
+                        Download Reports
+                    </h3>
+
+                </div>
+
+                <p>
+                    Export filtered attendance data for
+                    administrative use.
+                </p>
+
+            </div>
+
+
+            <div class="report-export-grid">
+
+
+                <!-- Attendance Report -->
+
+                <div class="report-export-card">
+
+                    <div class="export-card-top">
+
+                        <div class="export-icon">
+                            ✓
+                        </div>
+
+                        <span class="export-format">
+                            ATTENDANCE
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Attendance Report
+                    </h3>
+
+                    <p>
+                        View attendance records including
+                        check-in, check-out, status and
+                        working duration.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="export-button"
+                        id="attendanceReportButton"
+                    >
+                        <span>↓</span>
+                        Export Attendance
+                    </button>
+
+                </div>
+
+
+                <!-- Employee Report -->
+
+                <div class="report-export-card">
+
+                    <div class="export-card-top">
+
+                        <div class="export-icon employee">
+                            ♙
+                        </div>
+
+                        <span class="export-format">
+                            EMPLOYEES
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Employee Directory
+                    </h3>
+
+                    <p>
+                        Export employee information including
+                        department, designation, contact and
+                        employment status.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="export-button"
+                        id="employeeReportButton"
+                    >
+                        <span>↓</span>
+                        Export Employees
+                    </button>
+
+                </div>
+
+
+                <!-- Department Report -->
+
+                <div class="report-export-card">
+
+                    <div class="export-card-top">
+
+                        <div class="export-icon department">
+                            ▦
+                        </div>
+
+                        <span class="export-format">
+                            DEPARTMENTS
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Department Report
+                    </h3>
+
+                    <p>
+                        Review department-wise employee
+                        distribution and attendance information.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="export-button"
+                        id="departmentReportButton"
+                    >
+                        <span>↓</span>
+                        Export Departments
+                    </button>
+
+                </div>
+
+
+                <!-- Monthly Report -->
+
+                <div class="report-export-card">
+
+                    <div class="export-card-top">
+
+                        <div class="export-icon monthly">
+                            ▤
+                        </div>
+
+                        <span class="export-format">
+                            SUMMARY
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Attendance Summary
+                    </h3>
+
+                    <p>
+                        Generate a summarized attendance view
+                        for management and administrative review.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="export-button"
+                        id="summaryReportButton"
+                    >
+                        <span>↓</span>
+                        Export Summary
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================================================
+                 REPORT PREVIEW
+                 ================================================== -->
+
+            <div class="report-preview-card">
+
+                <div class="report-preview-header">
+
+                    <div>
+
+                        <span class="section-eyebrow">
+                            Report Preview
+                        </span>
+
+                        <h3>
+                            Attendance Records
+                        </h3>
+
+                    </div>
+
+                    <div class="preview-meta">
+
+                        <span>
+                            Period
+                        </span>
+
+                        <strong id="previewPeriod">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Loading -->
+
+                <div
+                    class="report-table-loading"
+                    id="reportTableLoading"
+                    hidden
+                >
+
+                    <div class="report-loading-spinner"></div>
+
+                    <span>
+                        Loading report data...
+                    </span>
+
+                </div>
+
+
+                <!-- Empty State -->
+
+                <div
+                    class="report-empty-state"
+                    id="reportEmptyState"
+                >
+
+                    <div class="empty-state-icon">
+                        ▤
+                    </div>
+
+                    <h4>
+                        No report data available
+                    </h4>
+
+                    <p>
+                        Select a date range and generate
+                        a report to view attendance records.
+                    </p>
+
+                </div>
+
+
+                <!-- Table -->
+
+                <div
+                    class="report-table-wrapper"
+                    id="reportTableWrapper"
+                    hidden
+                >
+
+                    <table class="report-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Employee
+                                </th>
+
+                                <th>
+                                    Date
+                                </th>
+
+                                <th>
+                                    Check In
+                                </th>
+
+                                <th>
+                                    Check Out
+                                </th>
+
+                                <th>
+                                    Working Time
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Late
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="reportTableBody">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- Table Footer -->
+
+                <div
+                    class="report-table-footer"
+                    id="reportTableFooter"
+                    hidden
+                >
+
+                    <span id="reportRecordCount">
+                        0 records
+                    </span>
+
+                    <span>
+                        Atluri ASCEND™
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ======================================================
+             FOOTER
+             ====================================================== -->
+
+        <footer class="app-footer">
+
+            <span>
+                © 2026 Atluri ASCEND™
+            </span>
+
+            <span>
+                Employee Attendance Management System
+            </span>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+
+<script src="../js/config.js"></script>
+
+<script src="../js/api.js"></script>
+
+<script src="../js/auth.js"></script>
+
+<script src="../js/reports.js"></script>
+
+</body>
+</html>

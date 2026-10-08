@@ -1,0 +1,706 @@
+/* =========================================================
+   ATLURI ASCEND™ — AUDIT LOGS
+========================================================= */
+
+.audit-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.audit-page-header h2 {
+    margin: 6px 0 7px;
+    font-size: 25px;
+    font-weight: 700;
+    color: #3b2418;
+}
+
+.audit-page-header p {
+    margin: 0;
+    color: #806f63;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.audit-status {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 15px;
+    background: #f6f0e8;
+    border: 1px solid #e6d9ca;
+    border-radius: 999px;
+    color: #604331;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.audit-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #65834c;
+    box-shadow: 0 0 0 4px rgba(101, 131, 76, 0.12);
+}
+
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.audit-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.audit-summary-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    min-height: 92px;
+    padding: 18px 20px;
+    background: #ffffff;
+    border: 1px solid #eadfd4;
+    border-radius: 16px;
+    box-shadow: 0 5px 18px rgba(69, 42, 25, 0.05);
+}
+
+.audit-summary-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    border-radius: 13px;
+    background: #f3e9dd;
+    color: #6d4932;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.audit-summary-card span {
+    display: block;
+    margin-bottom: 5px;
+    color: #8a786b;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.audit-summary-card strong {
+    display: block;
+    color: #3d281c;
+    font-size: 25px;
+    line-height: 1;
+}
+
+
+/* =========================================================
+   FILTER CARD
+========================================================= */
+
+.audit-filter-card {
+    padding: 22px;
+    margin-bottom: 22px;
+    background: #ffffff;
+    border: 1px solid #eadfd4;
+    border-radius: 17px;
+    box-shadow: 0 5px 18px rgba(69, 42, 25, 0.05);
+}
+
+.audit-filter-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.audit-filter-heading h3 {
+    margin: 5px 0 0;
+    color: #432a1d;
+    font-size: 17px;
+}
+
+.clear-filter-button {
+    padding: 9px 14px;
+    background: #faf7f3;
+    border: 1px solid #dfd2c5;
+    border-radius: 9px;
+    color: #694a37;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.clear-filter-button:hover {
+    background: #f1e7dc;
+    border-color: #cdb9a7;
+}
+
+.audit-filter-grid {
+    display: grid;
+    grid-template-columns: 2fr 1.2fr 1.1fr 1fr;
+    gap: 15px;
+}
+
+.audit-filter-field label {
+    display: block;
+    margin-bottom: 7px;
+    color: #60483a;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.audit-filter-field input,
+.audit-filter-field select {
+    width: 100%;
+    height: 42px;
+    padding: 0 12px;
+    background: #fffdfb;
+    border: 1px solid #ddd0c3;
+    border-radius: 9px;
+    outline: none;
+    color: #463127;
+    font-family: inherit;
+    font-size: 13px;
+    transition: 0.2s ease;
+}
+
+.audit-filter-field input:focus,
+.audit-filter-field select:focus {
+    border-color: #9b7558;
+    box-shadow: 0 0 0 3px rgba(155, 117, 88, 0.10);
+}
+
+.audit-search-wrapper {
+    position: relative;
+}
+
+.audit-search-wrapper input {
+    padding-left: 36px;
+}
+
+.audit-search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #907d6e;
+    font-size: 17px;
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   TABLE CARD
+========================================================= */
+
+.audit-table-card {
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #eadfd4;
+    border-radius: 17px;
+    box-shadow: 0 5px 18px rgba(69, 42, 25, 0.05);
+}
+
+.audit-table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 21px 22px;
+    border-bottom: 1px solid #eee5dc;
+}
+
+.audit-table-header h3 {
+    margin: 5px 0 0;
+    color: #432a1d;
+    font-size: 17px;
+}
+
+.audit-table-actions {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.audit-result-count {
+    color: #867568;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.refresh-audit-button {
+    padding: 9px 14px;
+    background: #4f3021;
+    border: 1px solid #4f3021;
+    border-radius: 9px;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.refresh-audit-button:hover {
+    background: #382117;
+    border-color: #382117;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.audit-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.audit-table {
+    width: 100%;
+    min-width: 900px;
+    border-collapse: collapse;
+}
+
+.audit-table thead {
+    background: #faf7f3;
+}
+
+.audit-table th {
+    padding: 13px 18px;
+    text-align: left;
+    border-bottom: 1px solid #e9ded4;
+    color: #725a4a;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.audit-table td {
+    padding: 15px 18px;
+    border-bottom: 1px solid #f0e9e2;
+    color: #5e4a3d;
+    font-size: 13px;
+    vertical-align: middle;
+}
+
+.audit-table tbody tr {
+    transition: background 0.18s ease;
+}
+
+.audit-table tbody tr:hover {
+    background: #fdfaf7;
+}
+
+.audit-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   EVENT CELL
+========================================================= */
+
+.audit-event-cell {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    min-width: 150px;
+}
+
+.audit-event-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 35px;
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    background: #f2e8dd;
+    color: #6c4832;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.audit-event-details strong {
+    display: block;
+    margin-bottom: 3px;
+    color: #443025;
+    font-size: 13px;
+}
+
+.audit-event-details span {
+    display: block;
+    color: #978679;
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   ACTION BADGES
+========================================================= */
+
+.audit-action-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 9px;
+    border-radius: 7px;
+    background: #f3ebe3;
+    color: #684833;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+}
+
+.audit-action-badge.login {
+    background: #edf4e9;
+    color: #54733e;
+}
+
+.audit-action-badge.failed {
+    background: #f9e9e5;
+    color: #a04f43;
+}
+
+.audit-action-badge.attendance {
+    background: #eeeaf5;
+    color: #62517c;
+}
+
+.audit-action-badge.qr {
+    background: #f4eddf;
+    color: #80602f;
+}
+
+.audit-action-badge.employee {
+    background: #eaf1f4;
+    color: #466a78;
+}
+
+
+/* =========================================================
+   USER / IP / DEVICE
+========================================================= */
+
+.audit-user-cell strong {
+    display: block;
+    color: #463126;
+    font-size: 13px;
+}
+
+.audit-user-cell span {
+    display: block;
+    margin-top: 3px;
+    color: #9a897d;
+    font-size: 11px;
+}
+
+.audit-ip {
+    font-family: "Courier New", monospace;
+    color: #675448;
+    font-size: 12px;
+}
+
+.audit-device {
+    max-width: 230px;
+    color: #756458;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.audit-datetime strong {
+    display: block;
+    color: #4d372b;
+    font-size: 12px;
+}
+
+.audit-datetime span {
+    display: block;
+    margin-top: 3px;
+    color: #9a897d;
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.audit-loading-cell {
+    height: 180px;
+    text-align: center !important;
+}
+
+.audit-loading {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    color: #887568;
+    font-size: 13px;
+}
+
+.audit-spinner {
+    width: 19px;
+    height: 19px;
+    border: 2px solid #e3d8cd;
+    border-top-color: #684531;
+    border-radius: 50%;
+    animation: auditSpin 0.8s linear infinite;
+}
+
+@keyframes auditSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   EMPTY / ERROR
+========================================================= */
+
+.audit-empty-state,
+.audit-error-state {
+    padding: 55px 25px;
+    text-align: center;
+}
+
+.audit-empty-icon,
+.audit-error-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    margin: 0 auto 15px;
+    border-radius: 15px;
+    background: #f4ece4;
+    color: #73513b;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.audit-error-icon {
+    background: #fae9e5;
+    color: #a34d40;
+}
+
+.audit-empty-state h3,
+.audit-error-state h3 {
+    margin: 0 0 7px;
+    color: #4a3327;
+    font-size: 16px;
+}
+
+.audit-empty-state p,
+.audit-error-state p {
+    margin: 0 auto;
+    max-width: 450px;
+    color: #8d7c70;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.retry-audit-button {
+    margin-top: 17px;
+    padding: 10px 17px;
+    background: #4f3021;
+    border: none;
+    border-radius: 9px;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   SECURITY CARD
+========================================================= */
+
+.audit-security-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 22px;
+    padding: 20px 22px;
+    background: #f7f1ea;
+    border: 1px solid #e6d9ca;
+    border-radius: 16px;
+}
+
+.audit-security-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 45px;
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    background: #eadbca;
+    color: #65432e;
+    font-size: 20px;
+}
+
+.audit-security-content {
+    flex: 1;
+}
+
+.audit-security-content h3 {
+    margin: 5px 0 5px;
+    color: #493125;
+    font-size: 15px;
+}
+
+.audit-security-content p {
+    margin: 0;
+    max-width: 590px;
+    color: #806f63;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.audit-security-points {
+    display: flex;
+    gap: 25px;
+}
+
+.audit-security-points div {
+    padding-left: 20px;
+    border-left: 1px solid #d9cabb;
+}
+
+.audit-security-points strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #574031;
+    font-size: 11px;
+}
+
+.audit-security-points span {
+    color: #89786c;
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1250px) {
+
+    .audit-summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .audit-filter-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .audit-search-field {
+        grid-column: span 2;
+    }
+
+    .audit-security-card {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .audit-security-content {
+        min-width: 60%;
+    }
+
+    .audit-security-points {
+        width: 100%;
+        padding-left: 63px;
+    }
+}
+
+
+@media (max-width: 800px) {
+
+    .audit-page-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .audit-status {
+        align-self: flex-start;
+    }
+
+    .audit-table-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .audit-table-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .audit-security-points {
+        flex-direction: column;
+        gap: 12px;
+        padding-left: 0;
+    }
+
+    .audit-security-points div {
+        padding-left: 0;
+        border-left: none;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .audit-summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .audit-filter-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .audit-search-field {
+        grid-column: span 1;
+    }
+
+    .audit-filter-card {
+        padding: 17px;
+    }
+
+    .audit-filter-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .clear-filter-button {
+        width: 100%;
+    }
+
+    .audit-table-actions {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .refresh-audit-button {
+        width: 100%;
+    }
+
+    .audit-security-card {
+        padding: 17px;
+    }
+}

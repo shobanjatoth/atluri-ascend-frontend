@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile | Atluri ASCEND™</title>
+
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="css/employee.css">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+
+<body>
+
+<div class="employee-app">
+
+    <!-- SIDEBAR -->
+    <aside class="employee-sidebar" id="employeeSidebar">
+
+        <div class="employee-brand">
+
+            <img
+                src="../../assets/images/atluri-logo.jpg"
+                alt="Atluri ASCEND"
+            >
+
+            <div>
+                <strong>Atluri ASCEND™</strong>
+                <span>Employee Portal</span>
+            </div>
+
+        </div>
+
+        <nav class="employee-nav">
+
+            <a href="dashboard.html" class="employee-nav-item">
+                <span>⌂</span>
+                <strong>Dashboard</strong>
+            </a>
+
+            <a href="scanner.html" class="employee-nav-item">
+                <span>▣</span>
+                <strong>Scan QR</strong>
+            </a>
+
+            <a href="attendance.html" class="employee-nav-item">
+                <span>◷</span>
+                <strong>My Attendance</strong>
+            </a>
+
+            <a href="profile.html" class="employee-nav-item active">
+                <span>◉</span>
+                <strong>My Profile</strong>
+            </a>
+
+        </nav>
+
+        <div class="employee-sidebar-footer">
+
+            <div class="secure-badge">
+                <span>⛨</span>
+
+                <div>
+                    <strong>Secure Access</strong>
+                    <small>Atluri ASCEND™</small>
+                </div>
+            </div>
+
+            <button
+                type="button"
+                class="employee-logout"
+                id="logoutButton"
+            >
+                <span>↪</span>
+                <span>Sign Out</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="employee-main">
+
+        <!-- TOPBAR -->
+        <header class="employee-topbar">
+
+            <div class="topbar-mobile-left">
+
+                <button
+                    type="button"
+                    class="employee-menu-button"
+                    id="mobileMenuButton"
+                >
+                    ☰
+                </button>
+
+                <div>
+                    <span>Employee Portal</span>
+                    <h1>My Profile</h1>
+                </div>
+
+            </div>
+
+            <div class="employee-topbar-right">
+
+                <div class="employee-date">
+
+                    <span>Today</span>
+
+                    <strong id="currentDate">
+                        —
+                    </strong>
+
+                </div>
+
+                <div class="employee-user">
+
+                    <div
+                        class="employee-avatar"
+                        id="employeeAvatar"
+                    >
+                        E
+                    </div>
+
+                    <div>
+
+                        <strong id="currentUsername">
+                            Employee
+                        </strong>
+
+                        <span>Employee</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTENT -->
+        <section class="profile-content">
+
+            <!-- HEADER -->
+            <div class="profile-page-header">
+
+                <div>
+
+                    <span class="profile-eyebrow">
+                        Account Information
+                    </span>
+
+                    <h2>
+                        My Profile
+                    </h2>
+
+                    <p>
+                        View your employee and organizational information.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROFILE HERO -->
+            <div class="profile-hero-card">
+
+                <div class="profile-hero-left">
+
+                    <div
+                        class="large-profile-avatar"
+                        id="largeProfileAvatar"
+                    >
+                        E
+                    </div>
+
+                    <div class="profile-hero-details">
+
+                        <span class="profile-role-label">
+                            Employee
+                        </span>
+
+                        <h2 id="profileName">
+                            Loading...
+                        </h2>
+
+                        <p id="profileDesignation">
+                            —
+                        </p>
+
+                        <div class="profile-status">
+                            <span></span>
+                            <strong id="profileStatus">
+                                Active
+                            </strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="employee-code-box">
+
+                    <span>
+                        Employee Code
+                    </span>
+
+                    <strong id="profileEmployeeCode">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- INFORMATION GRID -->
+            <div class="profile-grid">
+
+
+                <!-- PERSONAL INFORMATION -->
+                <div class="profile-card">
+
+                    <div class="profile-card-header">
+
+                        <div class="profile-card-icon">
+                            ◉
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Personal
+                            </span>
+
+                            <h3>
+                                Personal Information
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-information-list">
+
+                        <div class="profile-information-item">
+
+                            <span>
+                                Full Name
+                            </span>
+
+                            <strong id="infoName">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="profile-information-item">
+
+                            <span>
+                                Email Address
+                            </span>
+
+                            <strong id="infoEmail">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="profile-information-item">
+
+                            <span>
+                                Phone Number
+                            </span>
+
+                            <strong id="infoPhone">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ORGANIZATION -->
+                <div class="profile-card">
+
+                    <div class="profile-card-header">
+
+                        <div class="profile-card-icon">
+                            ▦
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Organization
+                            </span>
+
+                            <h3>
+                                Work Information
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-information-list">
+
+                        <div class="profile-information-item">
+
+                            <span>
+                                Department
+                            </span>
+
+                            <strong id="infoDepartment">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="profile-information-item">
+
+                            <span>
+                                Designation
+                            </span>
+
+                            <strong id="infoDesignation">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="profile-information-item">
+
+                            <span>
+                                Joining Date
+                            </span>
+
+                            <strong id="infoJoiningDate">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACCOUNT -->
+                <div class="profile-card">
+
+                    <div class="profile-card-header">
+
+                        <div class="profile-card-icon">
+                            ⛨
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Account
+                            </span>
+
+                            <h3>
+                                Account Information
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-information-list">
+
+                        <div class="profile-information-item">
+
+                            <span>
+                                Username
+                            </span>
+
+                            <strong id="infoUsername">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="profile-information-item">
+
+                            <span>
+                                Account Status
+                            </span>
+
+                            <strong id="infoAccountStatus">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="profile-information-item">
+
+                            <span>
+                                User ID
+                            </span>
+
+                            <strong id="infoUserId">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SECURITY -->
+                <div class="profile-security-card">
+
+                    <div class="profile-security-icon">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <span class="profile-eyebrow">
+                            Security
+                        </span>
+
+                        <h3>
+                            Your account is protected
+                        </h3>
+
+                        <p>
+                            Your employee account uses authenticated
+                            access to securely record attendance.
+                            Attendance actions are validated by the
+                            server before they are recorded.
+                        </p>
+
+                        <div class="security-points">
+
+                            <div>
+                                <span>✓</span>
+                                Authenticated access
+                            </div>
+
+                            <div>
+                                <span>✓</span>
+                                Secure attendance validation
+                            </div>
+
+                            <div>
+                                <span>✓</span>
+                                Server-side account verification
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ERROR -->
+            <div
+                class="profile-error"
+                id="profileError"
+                hidden
+            >
+
+                <div class="profile-error-icon">
+                    !
+                </div>
+
+                <div>
+
+                    <strong>
+                        Unable to load profile
+                    </strong>
+
+                    <p id="profileErrorMessage">
+                        Something went wrong while loading your profile.
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    id="retryProfileButton"
+                >
+                    Try Again
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer class="employee-footer">
+
+            <span>
+                © 2026 Atluri ASCEND™
+            </span>
+
+            <span>
+                Employee Attendance Management System
+            </span>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<script src="../../js/config.js"></script>
+<script src="../../js/api.js"></script>
+<script src="../../js/auth.js"></script>
+<script src="js/profile.js"></script>
+
+</body>
+</html>

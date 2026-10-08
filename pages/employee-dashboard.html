@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Employee Dashboard | Atluri ASCEND™</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/employee-dashboard.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/responsive.css"
+    >
+</head>
+
+<body class="employee-page">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="employee-sidebar" id="employeeSidebar">
+
+        <div class="employee-brand">
+
+            <div class="employee-brand-logo">
+                <img
+                    src="../assets/images/atluri-logo.png"
+                    alt="Atluri ASCEND™"
+                >
+            </div>
+
+            <div class="employee-brand-text">
+                <strong>Atluri ASCEND™</strong>
+                <span>Employee Portal</span>
+            </div>
+
+        </div>
+
+
+        <nav class="employee-navigation">
+
+            <a
+                href="employee-dashboard.html"
+                class="employee-nav-item active"
+            >
+                <span class="employee-nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="employee-qr-scanner.html"
+                class="employee-nav-item"
+            >
+                <span class="employee-nav-icon">▣</span>
+                <span>Scan QR</span>
+            </a>
+
+
+            <a
+                href="employee-attendance.html"
+                class="employee-nav-item"
+            >
+                <span class="employee-nav-icon">◷</span>
+                <span>Attendance</span>
+            </a>
+
+
+            <a
+                href="employee-profile.html"
+                class="employee-nav-item"
+            >
+                <span class="employee-nav-icon">♙</span>
+                <span>My Profile</span>
+            </a>
+
+        </nav>
+
+
+        <div class="employee-sidebar-bottom">
+
+            <div class="employee-security-note">
+                <span class="security-dot"></span>
+
+                <div>
+                    <strong>Secure Session</strong>
+                    <small>Your account is protected</small>
+                </div>
+            </div>
+
+
+            <button
+                type="button"
+                class="employee-logout-button"
+                id="logoutButton"
+            >
+                <span>↪</span>
+                <span>Sign Out</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="employee-main">
+
+        <!-- TOPBAR -->
+
+        <header class="employee-topbar">
+
+            <div class="employee-topbar-left">
+
+                <button
+                    type="button"
+                    class="employee-mobile-menu"
+                    id="mobileMenuButton"
+                    aria-label="Open menu"
+                >
+                    ☰
+                </button>
+
+                <div>
+                    <span class="employee-topbar-label">
+                        Employee Portal
+                    </span>
+
+                    <h1>My Dashboard</h1>
+                </div>
+
+            </div>
+
+
+            <div class="employee-topbar-right">
+
+                <div class="employee-date">
+                    <span class="date-icon">◷</span>
+
+                    <span id="currentDate">
+                        —
+                    </span>
+                </div>
+
+
+                <div class="employee-user">
+
+                    <div
+                        class="employee-avatar"
+                        id="employeeAvatar"
+                    >
+                        —
+                    </div>
+
+                    <div class="employee-user-info">
+
+                        <strong id="currentUsername">
+                            Employee
+                        </strong>
+
+                        <span>
+                            Employee
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             PAGE CONTENT
+        ================================================== -->
+
+        <section class="employee-content">
+
+            <!-- WELCOME -->
+
+            <div class="employee-welcome">
+
+                <div>
+                    <span class="welcome-label">
+                        Welcome back
+                    </span>
+
+                    <h2 id="welcomeName">
+                        Employee
+                    </h2>
+
+                    <p>
+                        Manage your attendance and
+                        keep track of your workday.
+                    </p>
+                </div>
+
+
+                <div class="welcome-date-card">
+
+                    <span>Today</span>
+
+                    <strong id="welcomeDate">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 TODAY STATUS
+            ================================================== -->
+
+            <div class="employee-section-heading">
+
+                <div>
+                    <span class="section-eyebrow">
+                        Attendance
+                    </span>
+
+                    <h2>Today's Status</h2>
+                </div>
+
+                <span
+                    class="attendance-status-badge"
+                    id="attendanceStatus"
+                >
+                    Loading
+                </span>
+
+            </div>
+
+
+            <div class="employee-status-grid">
+
+                <!-- CHECK IN -->
+
+                <div class="employee-status-card">
+
+                    <div class="status-card-header">
+
+                        <div class="status-card-icon checkin-icon">
+                            ↗
+                        </div>
+
+                        <span>
+                            Check In
+                        </span>
+
+                    </div>
+
+                    <strong id="checkInTime">
+                        —
+                    </strong>
+
+                    <small id="checkInMessage">
+                        Your check-in time
+                    </small>
+
+                </div>
+
+
+                <!-- CHECK OUT -->
+
+                <div class="employee-status-card">
+
+                    <div class="status-card-header">
+
+                        <div class="status-card-icon checkout-icon">
+                            ↙
+                        </div>
+
+                        <span>
+                            Check Out
+                        </span>
+
+                    </div>
+
+                    <strong id="checkOutTime">
+                        —
+                    </strong>
+
+                    <small id="checkOutMessage">
+                        Your check-out time
+                    </small>
+
+                </div>
+
+
+                <!-- WORKING HOURS -->
+
+                <div class="employee-status-card">
+
+                    <div class="status-card-header">
+
+                        <div class="status-card-icon hours-icon">
+                            ◷
+                        </div>
+
+                        <span>
+                            Working Time
+                        </span>
+
+                    </div>
+
+                    <strong id="workingTime">
+                        —
+                    </strong>
+
+                    <small>
+                        Total time worked
+                    </small>
+
+                </div>
+
+
+                <!-- LATE STATUS -->
+
+                <div class="employee-status-card">
+
+                    <div class="status-card-header">
+
+                        <div class="status-card-icon late-icon">
+                            !
+                        </div>
+
+                        <span>
+                            Attendance
+                        </span>
+
+                    </div>
+
+                    <strong id="lateStatus">
+                        —
+                    </strong>
+
+                    <small id="lateMessage">
+                        Today's attendance status
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 QUICK ACTIONS
+            ================================================== -->
+
+            <div class="employee-section-heading quick-heading">
+
+                <div>
+                    <span class="section-eyebrow">
+                        Actions
+                    </span>
+
+                    <h2>Quick Actions</h2>
+                </div>
+
+            </div>
+
+
+            <div class="employee-quick-actions">
+
+                <a
+                    href="employee-qr-scanner.html"
+                    class="employee-action-card primary-action"
+                >
+
+                    <div class="action-card-icon">
+                        ▣
+                    </div>
+
+                    <div class="action-card-content">
+
+                        <strong>
+                            Scan QR Code
+                        </strong>
+
+                        <span>
+                            Check in or check out
+                            using the entrance QR.
+                        </span>
+
+                    </div>
+
+                    <span class="action-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="employee-attendance.html"
+                    class="employee-action-card"
+                >
+
+                    <div class="action-card-icon">
+                        ◷
+                    </div>
+
+                    <div class="action-card-content">
+
+                        <strong>
+                            Attendance History
+                        </strong>
+
+                        <span>
+                            View your previous
+                            attendance records.
+                        </span>
+
+                    </div>
+
+                    <span class="action-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="employee-profile.html"
+                    class="employee-action-card"
+                >
+
+                    <div class="action-card-icon">
+                        ♙
+                    </div>
+
+                    <div class="action-card-content">
+
+                        <strong>
+                            My Profile
+                        </strong>
+
+                        <span>
+                            View your employee
+                            information.
+                        </span>
+
+                    </div>
+
+                    <span class="action-arrow">
+                        →
+                    </span>
+
+                </a>
+
+            </div>
+
+
+            <!-- =================================================
+                 TODAY INFORMATION
+            ================================================== -->
+
+            <div class="employee-information-grid">
+
+                <div class="employee-info-card">
+
+                    <div class="info-card-heading">
+
+                        <div>
+                            <span class="section-eyebrow">
+                                Workday
+                            </span>
+
+                            <h2>Today's Overview</h2>
+                        </div>
+
+                    </div>
+
+
+                    <div class="overview-row">
+
+                        <span>
+                            Attendance
+                        </span>
+
+                        <strong id="overviewAttendance">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="overview-row">
+
+                        <span>
+                            Check-in
+                        </span>
+
+                        <strong id="overviewCheckIn">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="overview-row">
+
+                        <span>
+                            Check-out
+                        </span>
+
+                        <strong id="overviewCheckOut">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="overview-row">
+
+                        <span>
+                            Working time
+                        </span>
+
+                        <strong id="overviewWorkingTime">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="employee-info-card attendance-tip-card">
+
+                    <div class="tip-icon">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <span class="section-eyebrow">
+                            Attendance Reminder
+                        </span>
+
+                        <h2>
+                            Keep your attendance updated
+                        </h2>
+
+                        <p>
+                            Scan the QR code at the entrance
+                            when you arrive and when you leave.
+                            Make sure you receive a successful
+                            confirmation after every scan.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ERROR -->
+
+            <div
+                class="employee-dashboard-error"
+                id="dashboardError"
+                hidden
+            >
+                <strong>
+                    Unable to load attendance
+                </strong>
+
+                <span id="dashboardErrorMessage">
+                    Please try again.
+                </span>
+
+                <button
+                    type="button"
+                    id="retryButton"
+                >
+                    Retry
+                </button>
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer class="employee-footer">
+
+            <span>
+                © 2026 Atluri ASCEND™
+            </span>
+
+            <span>
+                Secure Employee Attendance Portal
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <!-- =====================================================
+         SCRIPTS
+    ====================================================== -->
+
+    <script src="../js/config.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/employee-dashboard.js"></script>
+
+</body>
+</html>

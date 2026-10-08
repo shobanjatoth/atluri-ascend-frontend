@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>QR Access | Atluri ASCEND™</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/qr-access.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+
+<body>
+
+<div class="app-shell">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-brand">
+
+            <img
+                src="../assets/images/atluri-logo.png"
+                alt="Atluri ASCEND"
+                class="sidebar-logo"
+            >
+
+            <div class="brand-text">
+                <h2>Atluri ASCEND™</h2>
+                <span>Admin Portal</span>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="../index.html" class="nav-item">
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="employees.html" class="nav-item">
+                <span class="nav-icon">♙</span>
+                <span>Employees</span>
+            </a>
+
+            <a href="departments.html" class="nav-item">
+                <span class="nav-icon">▦</span>
+                <span>Departments</span>
+            </a>
+
+            <a href="attendance.html" class="nav-item">
+                <span class="nav-icon">✓</span>
+                <span>Attendance</span>
+            </a>
+
+            <a href="qr-access.html" class="nav-item active">
+                <span class="nav-icon">▣</span>
+                <span>QR Access</span>
+            </a>
+
+            <a href="reports.html" class="nav-item">
+                <span class="nav-icon">▤</span>
+                <span>Reports</span>
+            </a>
+
+            <a href="audit-logs.html" class="nav-item">
+                <span class="nav-icon">◷</span>
+                <span>Audit Logs</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-footer">
+
+            <div class="sidebar-footer-line"></div>
+
+            <div class="sidebar-footer-content">
+                <span>Secure Attendance</span>
+                <small>Atluri ASCEND™</small>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    type="button"
+                    class="mobile-menu-button"
+                    id="mobileMenuButton"
+                >
+                    ☰
+                </button>
+
+                <div>
+                    <span class="topbar-label">Access Control</span>
+                    <h1>QR Access</h1>
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <div class="topbar-date">
+
+                    <span>Today</span>
+
+                    <strong id="currentDate">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="admin-profile">
+
+                    <div class="admin-avatar">
+                        A
+                    </div>
+
+                    <div class="admin-info">
+
+                        <strong id="currentUsername">
+                            Admin
+                        </strong>
+
+                        <span>
+                            Administrator
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="logout-button"
+                    id="logoutButton"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- PAGE -->
+        <section class="page-content">
+
+            <!-- HEADER -->
+            <div class="qr-page-header">
+
+                <div>
+
+                    <span class="section-eyebrow">
+                        Entrance Access
+                    </span>
+
+                    <h2>
+                        Dynamic QR Access
+                    </h2>
+
+                    <p>
+                        Generate and display the temporary QR code used for employee attendance.
+                    </p>
+
+                </div>
+
+
+                <div class="qr-header-status">
+
+                    <span
+                        class="qr-status-dot"
+                        id="headerStatusDot"
+                    ></span>
+
+                    <span id="headerStatus">
+                        Ready
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- QR LAYOUT -->
+            <div class="qr-access-layout">
+
+
+                <!-- QR DISPLAY -->
+                <div class="qr-display-card">
+
+                    <div class="qr-display-header">
+
+                        <div>
+
+                            <span class="qr-label">
+                                ENTRANCE QR
+                            </span>
+
+                            <h3>
+                                Scan to Record Attendance
+                            </h3>
+
+                        </div>
+
+
+                        <div
+                            class="qr-live-badge"
+                            id="qrLiveBadge"
+                        >
+                            <span></span>
+                            Live
+                        </div>
+
+                    </div>
+
+
+                    <!-- QR -->
+                    <div class="qr-code-area">
+
+                        <div
+                            class="qr-code-frame"
+                            id="qrCodeFrame"
+                        >
+
+                            <div
+                                class="qr-loading"
+                                id="qrLoading"
+                            >
+
+                                <div class="qr-spinner"></div>
+
+                                <span>
+                                    Generating QR...
+                                </span>
+
+                            </div>
+
+
+                            <img
+                                id="qrCodeImage"
+                                class="qr-code-image"
+                                alt="Dynamic attendance QR code"
+                                hidden
+                            >
+
+
+                            <div
+                                class="qr-expired-overlay"
+                                id="qrExpiredOverlay"
+                                hidden
+                            >
+
+                                <div class="expired-icon">
+                                    !
+                                </div>
+
+                                <strong>
+                                    QR Expired
+                                </strong>
+
+                                <span>
+                                    Generate a new code to continue.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- COUNTDOWN -->
+                    <div class="qr-countdown">
+
+                        <span>
+                            Code expires in
+                        </span>
+
+                        <strong id="qrCountdown">
+                            --:--
+                        </strong>
+
+                    </div>
+
+
+                    <!-- ACTION -->
+                    <button
+                        type="button"
+                        class="generate-qr-button"
+                        id="generateQrButton"
+                    >
+
+                        <span class="generate-icon">
+                            ↻
+                        </span>
+
+                        Generate New QR
+
+                    </button>
+
+
+                    <div class="qr-session-info">
+
+                        <div class="session-info-item">
+
+                            <span>
+                                Location
+                            </span>
+
+                            <strong id="qrLocation">
+                                Main Entrance
+                            </strong>
+
+                        </div>
+
+
+                        <div class="session-info-item">
+
+                            <span>
+                                Session ID
+                            </span>
+
+                            <strong id="qrSessionId">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- INFORMATION -->
+                <div class="qr-information-column">
+
+
+                    <!-- SECURITY -->
+                    <div class="qr-info-card">
+
+                        <div class="info-card-icon">
+                            ✓
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Secure Dynamic QR
+                            </h3>
+
+                            <p>
+                                Every QR code uses a temporary server-generated token.
+                                Expired codes cannot be used for attendance.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- HOW IT WORKS -->
+                    <div class="qr-info-card workflow-card">
+
+                        <div class="info-card-heading">
+
+                            <span class="section-eyebrow">
+                                Workflow
+                            </span>
+
+                            <h3>
+                                How it works
+                            </h3>
+
+                        </div>
+
+
+                        <div class="workflow-list">
+
+                            <div class="workflow-step">
+
+                                <div class="workflow-number">
+                                    01
+                                </div>
+
+                                <div>
+                                    <strong>
+                                        Generate
+                                    </strong>
+
+                                    <span>
+                                        Admin generates a temporary QR.
+                                    </span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="workflow-line"></div>
+
+
+                            <div class="workflow-step">
+
+                                <div class="workflow-number">
+                                    02
+                                </div>
+
+                                <div>
+                                    <strong>
+                                        Employee scans
+                                    </strong>
+
+                                    <span>
+                                        Employee scans the QR from the mobile app.
+                                    </span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="workflow-line"></div>
+
+
+                            <div class="workflow-step">
+
+                                <div class="workflow-number">
+                                    03
+                                </div>
+
+                                <div>
+                                    <strong>
+                                        Server validates
+                                    </strong>
+
+                                    <span>
+                                        Backend validates the temporary token.
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="workflow-line"></div>
+
+
+                            <div class="workflow-step">
+
+                                <div class="workflow-number">
+                                    04
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Attendance recorded
+                                    </strong>
+
+                                    <span>
+                                        Check-in or check-out is recorded.
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SECURITY RULES -->
+                    <div class="qr-security-card">
+
+                        <div class="security-heading">
+
+                            <span class="security-icon">
+                                ⛨
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Security Controls
+                                </strong>
+
+                                <span>
+                                    Protected attendance access
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <ul>
+
+                            <li>
+                                Short-lived QR token
+                            </li>
+
+                            <li>
+                                Server-side token validation
+                            </li>
+
+                            <li>
+                                Previous active QR invalidated
+                            </li>
+
+                            <li>
+                                No employee data stored in QR
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- TEST TOKEN -->
+            <div class="qr-token-card">
+
+                <div>
+
+                    <span class="section-eyebrow">
+                        Development Information
+                    </span>
+
+                    <h3>
+                        Current Session Token
+                    </h3>
+
+                    <p>
+                        Available for development and API testing only.
+                    </p>
+
+                </div>
+
+
+                <div class="token-display">
+
+                    <code id="qrToken">
+                        No active token
+                    </code>
+
+                    <button
+                        type="button"
+                        class="copy-token-button"
+                        id="copyTokenButton"
+                        disabled
+                    >
+                        Copy
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <footer class="app-footer">
+
+            <span>
+                © 2026 Atluri ASCEND™
+            </span>
+
+            <span>
+                Employee Attendance Management System
+            </span>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<script src="../js/config.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/qr-access.js"></script>
+
+</body>
+</html>

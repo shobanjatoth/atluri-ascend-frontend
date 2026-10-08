@@ -1,0 +1,343 @@
+/* ==========================================
+   EMPLOYEE FORM
+========================================== */
+
+.page-content {
+    padding: 30px;
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.form-page-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.page-eyebrow {
+    display: block;
+    margin-bottom: 6px;
+    color: #96745c;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.form-page-header h2 {
+    margin: 0;
+    color: #352820;
+    font-size: 27px;
+}
+
+.form-page-header p {
+    margin: 7px 0 0;
+    color: #8b7b70;
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   FORM CARD
+========================================== */
+
+.form-card {
+    width: 100%;
+    max-width: 1050px;
+    border: 1px solid #e8ded6;
+    border-radius: 15px;
+    background: #ffffff;
+    box-shadow: 0 4px 18px rgba(74, 49, 35, 0.05);
+}
+
+
+/* ==========================================
+   FORM SECTION
+========================================== */
+
+.form-section {
+    padding: 27px 30px;
+    border-bottom: 1px solid #eee6df;
+}
+
+.form-section:last-of-type {
+    border-bottom: none;
+}
+
+.section-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    margin-bottom: 23px;
+}
+
+.section-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    background: #f2e7dd;
+    color: #6d4934;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.section-heading h3 {
+    margin: 2px 0 4px;
+    color: #3b2d25;
+    font-size: 16px;
+}
+
+.section-heading p {
+    margin: 0;
+    color: #97877c;
+    font-size: 12px;
+}
+
+
+/* ==========================================
+   GRID
+========================================== */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 24px;
+}
+
+
+/* ==========================================
+   FORM FIELD
+========================================== */
+
+.form-field {
+    min-width: 0;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 7px;
+    color: #594940;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.form-field label span {
+    color: #a84d3a;
+}
+
+.form-field input,
+.form-field select {
+    width: 100%;
+    height: 43px;
+    box-sizing: border-box;
+    padding: 0 13px;
+    border: 1px solid #ddd1c8;
+    border-radius: 9px;
+    outline: none;
+    background: #ffffff;
+    color: #42342b;
+    font-family: inherit;
+    font-size: 13px;
+    transition: 0.2s ease;
+}
+
+.form-field input::placeholder {
+    color: #b0a198;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+    border-color: #997156;
+    box-shadow: 0 0 0 3px rgba(153, 113, 86, 0.10);
+}
+
+.form-field input.invalid,
+.form-field select.invalid {
+    border-color: #c66a59;
+}
+
+.field-error {
+    display: block;
+    min-height: 16px;
+    margin-top: 5px;
+    color: #ad4d3c;
+    font-size: 11px;
+}
+
+.field-help {
+    display: block;
+    margin-top: 6px;
+    color: #a09288;
+    font-size: 11px;
+}
+
+
+/* ==========================================
+   PASSWORD
+========================================== */
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    padding-right: 65px;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 9px;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    color: #765741;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+/* ==========================================
+   FORM ALERT
+========================================== */
+
+.form-alert {
+    margin: 0 30px 20px;
+    padding: 12px 14px;
+    border: 1px solid #e5c1ba;
+    border-radius: 9px;
+    background: #fff3f0;
+    color: #984839;
+    font-size: 13px;
+}
+
+.form-alert.hidden {
+    display: none;
+}
+
+
+/* ==========================================
+   FORM ACTIONS
+========================================== */
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 20px 30px;
+    border-top: 1px solid #eee6df;
+    background: #fcfaf8;
+    border-radius: 0 0 15px 15px;
+}
+
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.primary-button,
+.secondary-button {
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.primary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 145px;
+    padding: 11px 18px;
+    border-radius: 9px;
+    background: #6f452e;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.primary-button:hover {
+    background: #583522;
+}
+
+.primary-button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+.secondary-button {
+    padding: 10px 16px;
+    border: 1px solid #ded2c8;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #5e4d41;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.secondary-button:hover {
+    background: #f7f1ed;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 750px) {
+
+    .page-content {
+        padding: 20px 15px;
+    }
+
+    .form-page-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .form-page-header .secondary-button {
+        width: 100%;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-section {
+        padding: 23px 20px;
+    }
+
+    .form-alert {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .form-actions {
+        padding: 17px 20px;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+
+}

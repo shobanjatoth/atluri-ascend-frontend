@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Attendance History | Atluri ASCEND™</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/employee-attendance.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="brand-logo">
+                <img
+                    src="../assets/images/atluri-logo.png"
+                    alt="Atluri ASCEND"
+                >
+            </div>
+
+            <div class="brand-text">
+                <h2>Atluri</h2>
+                <span>ASCEND™</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="../index.html" class="nav-item">
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="employee-qr-scanner.html" class="nav-item">
+                <span class="nav-icon">▣</span>
+                <span>QR Scanner</span>
+            </a>
+
+            <a href="employee-attendance.html" class="nav-item active">
+                <span class="nav-icon">◷</span>
+                <span>Attendance</span>
+            </a>
+
+            <a href="#" class="nav-item" id="employeeProfileLink">
+                <span class="nav-icon">◯</span>
+                <span>My Profile</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-footer">
+            <button class="logout-sidebar-button" id="logoutButton">
+                <span>↪</span>
+                <span>Logout</span>
+            </button>
+        </div>
+
+    </aside>
+
+
+    <!-- Main -->
+    <main class="main-content">
+
+        <!-- Topbar -->
+        <header class="topbar">
+
+            <button
+                class="mobile-menu-button"
+                id="mobileMenuButton"
+                aria-label="Open menu"
+            >
+                ☰
+            </button>
+
+            <div class="topbar-left">
+                <div>
+                    <p class="topbar-label">Employee Portal</p>
+                    <h1>Attendance History</h1>
+                </div>
+            </div>
+
+            <div class="topbar-right">
+
+                <div class="topbar-date">
+                    <span>Today</span>
+                    <strong id="currentDate">—</strong>
+                </div>
+
+                <div class="topbar-profile">
+                    <div class="profile-avatar" id="profileAvatar">
+                        E
+                    </div>
+
+                    <div class="profile-info">
+                        <strong id="currentUsername">Employee</strong>
+                        <span>Employee</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- Page Content -->
+        <section class="page-content">
+
+            <div class="page-header">
+
+                <div>
+                    <p class="eyebrow">TIME & ATTENDANCE</p>
+                    <h2>My Attendance</h2>
+                    <p class="page-description">
+                        View your check-in, check-out and working hours history.
+                    </p>
+                </div>
+
+                <a
+                    href="employee-qr-scanner.html"
+                    class="primary-button"
+                >
+                    <span>▣</span>
+                    Scan QR
+                </a>
+
+            </div>
+
+
+            <!-- Summary -->
+            <div class="attendance-summary">
+
+                <div class="summary-card">
+                    <div class="summary-icon">◷</div>
+
+                    <div>
+                        <span>Total Records</span>
+                        <strong id="totalRecords">0</strong>
+                    </div>
+                </div>
+
+
+                <div class="summary-card">
+                    <div class="summary-icon">✓</div>
+
+                    <div>
+                        <span>Present Days</span>
+                        <strong id="presentDays">0</strong>
+                    </div>
+                </div>
+
+
+                <div class="summary-card">
+                    <div class="summary-icon">⌛</div>
+
+                    <div>
+                        <span>Total Hours</span>
+                        <strong id="totalHours">0h</strong>
+                    </div>
+                </div>
+
+
+                <div class="summary-card">
+                    <div class="summary-icon">!</div>
+
+                    <div>
+                        <span>Late Days</span>
+                        <strong id="lateDays">0</strong>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Filters -->
+            <div class="filter-card">
+
+                <div class="filter-header">
+                    <div>
+                        <h3>Attendance Records</h3>
+                        <p>Review your attendance activity.</p>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        id="clearFiltersButton"
+                    >
+                        Clear Filters
+                    </button>
+                </div>
+
+
+                <div class="filter-grid">
+
+                    <div class="filter-field">
+                        <label for="startDate">From Date</label>
+
+                        <input
+                            type="date"
+                            id="startDate"
+                        >
+                    </div>
+
+
+                    <div class="filter-field">
+                        <label for="endDate">To Date</label>
+
+                        <input
+                            type="date"
+                            id="endDate"
+                        >
+                    </div>
+
+
+                    <div class="filter-field">
+                        <label for="statusFilter">Status</label>
+
+                        <select id="statusFilter">
+                            <option value="">All Statuses</option>
+                            <option value="INSIDE">Inside</option>
+                            <option value="OUTSIDE">Checked Out</option>
+                        </select>
+                    </div>
+
+
+                    <div class="filter-field">
+                        <label for="searchInput">Search</label>
+
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Search date or status..."
+                        >
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Table -->
+            <div class="table-card">
+
+                <div class="table-wrapper">
+
+                    <table class="attendance-table">
+
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Check In</th>
+                                <th>Check Out</th>
+                                <th>Working Hours</th>
+                                <th>Status</th>
+                                <th>Attendance</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="attendanceTableBody">
+
+                            <tr>
+                                <td
+                                    colspan="6"
+                                    class="loading-row"
+                                >
+                                    Loading attendance...
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <div
+                    class="table-empty"
+                    id="emptyState"
+                    style="display: none;"
+                >
+                    <div class="empty-icon">◷</div>
+
+                    <h3>No attendance records</h3>
+
+                    <p>
+                        No attendance records match your current filters.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- Toast -->
+<div
+    class="attendance-toast"
+    id="attendanceToast"
+>
+    <span id="toastMessage"></span>
+</div>
+
+
+<script src="../js/config.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/attendance.js"></script>
+<script src="../js/employee-attendance.js"></script>
+
+</body>
+</html>

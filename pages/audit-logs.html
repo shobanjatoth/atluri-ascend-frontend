@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Audit Logs | Atluri ASCEND™</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/audit-logs.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+
+<body>
+
+<div class="app-shell">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-brand">
+
+            <img
+                src="../assets/images/atluri-logo.png"
+                alt="Atluri ASCEND"
+                class="sidebar-logo"
+            >
+
+            <div class="brand-text">
+                <h2>Atluri ASCEND™</h2>
+                <span>Admin Portal</span>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="../index.html" class="nav-item">
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="employees.html" class="nav-item">
+                <span class="nav-icon">♙</span>
+                <span>Employees</span>
+            </a>
+
+            <a href="departments.html" class="nav-item">
+                <span class="nav-icon">▦</span>
+                <span>Departments</span>
+            </a>
+
+            <a href="attendance.html" class="nav-item">
+                <span class="nav-icon">✓</span>
+                <span>Attendance</span>
+            </a>
+
+            <a href="qr-access.html" class="nav-item">
+                <span class="nav-icon">▣</span>
+                <span>QR Access</span>
+            </a>
+
+            <a href="reports.html" class="nav-item">
+                <span class="nav-icon">▤</span>
+                <span>Reports</span>
+            </a>
+
+            <a href="audit-logs.html" class="nav-item active">
+                <span class="nav-icon">◷</span>
+                <span>Audit Logs</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-footer">
+
+            <div class="sidebar-footer-line"></div>
+
+            <div class="sidebar-footer-content">
+                <span>Secure Attendance</span>
+                <small>Atluri ASCEND™</small>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             TOPBAR
+        ================================================== -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    type="button"
+                    class="mobile-menu-button"
+                    id="mobileMenuButton"
+                >
+                    ☰
+                </button>
+
+                <div>
+
+                    <span class="topbar-label">
+                        Security & Monitoring
+                    </span>
+
+                    <h1>
+                        Audit Logs
+                    </h1>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <div class="topbar-date">
+
+                    <span>Today</span>
+
+                    <strong id="currentDate">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="admin-profile">
+
+                    <div class="admin-avatar">
+                        A
+                    </div>
+
+                    <div class="admin-info">
+
+                        <strong id="currentUsername">
+                            Admin
+                        </strong>
+
+                        <span>
+                            Administrator
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="logout-button"
+                    id="logoutButton"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             PAGE CONTENT
+        ================================================== -->
+
+        <section class="page-content">
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="audit-page-header">
+
+                <div>
+
+                    <span class="section-eyebrow">
+                        Security Monitoring
+                    </span>
+
+                    <h2>
+                        System Activity
+                    </h2>
+
+                    <p>
+                        Review important authentication, attendance,
+                        QR and administrative activities recorded by
+                        the system.
+                    </p>
+
+                </div>
+
+
+                <div class="audit-status">
+
+                    <span class="audit-status-dot"></span>
+
+                    <span>
+                        Audit Monitoring Active
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SUMMARY CARDS
+            ================================================== -->
+
+            <div class="audit-summary-grid">
+
+
+                <div class="audit-summary-card">
+
+                    <div class="audit-summary-icon">
+                        ◷
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Total Events
+                        </span>
+
+                        <strong id="totalEvents">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="audit-summary-card">
+
+                    <div class="audit-summary-icon">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Successful Actions
+                        </span>
+
+                        <strong id="successfulEvents">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="audit-summary-card">
+
+                    <div class="audit-summary-icon">
+                        !
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Login Failures
+                        </span>
+
+                        <strong id="failedLogins">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="audit-summary-card">
+
+                    <div class="audit-summary-icon">
+                        A
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Active Users
+                        </span>
+
+                        <strong id="activeUsers">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FILTER CARD
+            ================================================== -->
+
+            <div class="audit-filter-card">
+
+                <div class="audit-filter-heading">
+
+                    <div>
+
+                        <span class="section-eyebrow">
+                            Activity Explorer
+                        </span>
+
+                        <h3>
+                            Filter Audit Events
+                        </h3>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="clear-filter-button"
+                        id="clearFiltersButton"
+                    >
+                        Clear Filters
+                    </button>
+
+                </div>
+
+
+                <div class="audit-filter-grid">
+
+
+                    <!-- SEARCH -->
+
+                    <div class="audit-filter-field audit-search-field">
+
+                        <label for="auditSearch">
+                            Search
+                        </label>
+
+                        <div class="audit-search-wrapper">
+
+                            <span class="audit-search-icon">
+                                ⌕
+                            </span>
+
+                            <input
+                                type="text"
+                                id="auditSearch"
+                                placeholder="Search user, action, IP address..."
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ACTION -->
+
+                    <div class="audit-filter-field">
+
+                        <label for="actionFilter">
+                            Action
+                        </label>
+
+                        <select id="actionFilter">
+
+                            <option value="">
+                                All Actions
+                            </option>
+
+                            <option value="LOGIN">
+                                Login
+                            </option>
+
+                            <option value="LOGIN_FAILED">
+                                Login Failed
+                            </option>
+
+                            <option value="LOGOUT">
+                                Logout
+                            </option>
+
+                            <option value="QR_GENERATED">
+                                QR Generated
+                            </option>
+
+                            <option value="CHECK_IN">
+                                Check In
+                            </option>
+
+                            <option value="CHECK_OUT">
+                                Check Out
+                            </option>
+
+                            <option value="EMPLOYEE_CREATED">
+                                Employee Created
+                            </option>
+
+                            <option value="EMPLOYEE_UPDATED">
+                                Employee Updated
+                            </option>
+
+                            <option value="EMPLOYEE_DEACTIVATED">
+                                Employee Deactivated
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- DATE -->
+
+                    <div class="audit-filter-field">
+
+                        <label for="dateFilter">
+                            Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="dateFilter"
+                        >
+
+                    </div>
+
+
+                    <!-- USER -->
+
+                    <div class="audit-filter-field">
+
+                        <label for="userFilter">
+                            User ID
+                        </label>
+
+                        <input
+                            type="number"
+                            id="userFilter"
+                            placeholder="e.g. 1"
+                            min="1"
+                        >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 AUDIT TABLE
+            ================================================== -->
+
+            <div class="audit-table-card">
+
+
+                <div class="audit-table-header">
+
+                    <div>
+
+                        <span class="section-eyebrow">
+                            Activity History
+                        </span>
+
+                        <h3>
+                            Audit Events
+                        </h3>
+
+                    </div>
+
+
+                    <div class="audit-table-actions">
+
+                        <span
+                            class="audit-result-count"
+                            id="auditResultCount"
+                        >
+                            0 events
+                        </span>
+
+                        <button
+                            type="button"
+                            class="refresh-audit-button"
+                            id="refreshAuditButton"
+                        >
+                            ↻ Refresh
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="audit-table-wrapper">
+
+                    <table class="audit-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Event
+                                </th>
+
+                                <th>
+                                    User
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                                <th>
+                                    IP Address
+                                </th>
+
+                                <th>
+                                    Device
+                                </th>
+
+                                <th>
+                                    Date & Time
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="auditTableBody">
+
+                            <tr>
+
+                                <td
+                                    colspan="6"
+                                    class="audit-loading-cell"
+                                >
+
+                                    <div class="audit-loading">
+
+                                        <div class="audit-spinner"></div>
+
+                                        <span>
+                                            Loading audit events...
+                                        </span>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- EMPTY STATE -->
+
+                <div
+                    class="audit-empty-state"
+                    id="auditEmptyState"
+                    hidden
+                >
+
+                    <div class="audit-empty-icon">
+                        ◷
+                    </div>
+
+                    <h3>
+                        No Audit Events Found
+                    </h3>
+
+                    <p>
+                        No activity matches the current filters.
+                    </p>
+
+                </div>
+
+
+                <!-- ERROR STATE -->
+
+                <div
+                    class="audit-error-state"
+                    id="auditErrorState"
+                    hidden
+                >
+
+                    <div class="audit-error-icon">
+                        !
+                    </div>
+
+                    <h3>
+                        Unable to Load Audit Logs
+                    </h3>
+
+                    <p id="auditErrorMessage">
+                        Something went wrong while loading
+                        audit events.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="retry-audit-button"
+                        id="retryAuditButton"
+                    >
+                        Try Again
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SECURITY INFORMATION
+            ================================================== -->
+
+            <div class="audit-security-card">
+
+                <div class="audit-security-icon">
+                    ⛨
+                </div>
+
+                <div class="audit-security-content">
+
+                    <span class="section-eyebrow">
+                        Security Record
+                    </span>
+
+                    <h3>
+                        Why Audit Logs Matter
+                    </h3>
+
+                    <p>
+                        Audit events provide a traceable record of
+                        important system activity for security,
+                        troubleshooting and accountability.
+                    </p>
+
+                </div>
+
+
+                <div class="audit-security-points">
+
+                    <div>
+                        <strong>
+                            Authentication
+                        </strong>
+
+                        <span>
+                            Login activity
+                        </span>
+                    </div>
+
+
+                    <div>
+                        <strong>
+                            Attendance
+                        </strong>
+
+                        <span>
+                            Check-in and check-out
+                        </span>
+                    </div>
+
+
+                    <div>
+                        <strong>
+                            Administration
+                        </strong>
+
+                        <span>
+                            Employee and QR actions
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <footer class="app-footer">
+
+            <span>
+                © 2026 Atluri ASCEND™
+            </span>
+
+            <span>
+                Employee Attendance Management System
+            </span>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script src="../js/config.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/audit-logs.js"></script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Employees | Atluri ASCEND™</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/employees.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <!-- ==========================================
+         SIDEBAR
+    =========================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-mark">
+                A
+            </div>
+
+            <div class="brand-text">
+                <h2>Atluri ASCEND™</h2>
+                <span>Attendance Management</span>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="../index.html" class="nav-item">
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="employees.html" class="nav-item active">
+                <span class="nav-icon">♙</span>
+                <span>Employees</span>
+            </a>
+
+            <a href="departments.html" class="nav-item">
+                <span class="nav-icon">▦</span>
+                <span>Departments</span>
+            </a>
+
+            <a href="attendance.html" class="nav-item">
+                <span class="nav-icon">◷</span>
+                <span>Attendance</span>
+            </a>
+
+            <a href="qr-access.html" class="nav-item">
+                <span class="nav-icon">▣</span>
+                <span>QR Access</span>
+            </a>
+
+            <a href="reports.html" class="nav-item">
+                <span class="nav-icon">▤</span>
+                <span>Reports</span>
+            </a>
+
+            <a href="audit-logs.html" class="nav-item">
+                <span class="nav-icon">◉</span>
+                <span>Audit Logs</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-footer">
+
+            <button id="logoutButton" class="logout-button">
+                <span>↪</span>
+                <span>Sign Out</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ==========================================
+         MAIN CONTENT
+    =========================================== -->
+
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    class="mobile-menu-button"
+                    id="mobileMenuButton"
+                    type="button"
+                >
+                    ☰
+                </button>
+
+                <div>
+                    <h1>Employees</h1>
+
+                    <p id="currentDate">
+                        Loading date...
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <div class="admin-profile">
+
+                    <div class="admin-avatar">
+                        A
+                    </div>
+
+                    <div class="admin-info">
+
+                        <strong id="currentUsername">
+                            Administrator
+                        </strong>
+
+                        <span>Administrator</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- PAGE CONTENT -->
+
+        <section class="page-content">
+
+
+            <!-- ======================================
+                 PAGE HEADER
+            ======================================= -->
+
+            <div class="page-header">
+
+                <div>
+
+                    <span class="page-eyebrow">
+                        Workforce Management
+                    </span>
+
+                    <h2>
+                        Employee Directory
+                    </h2>
+
+                    <p>
+                        Manage employees, departments and account status.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="primary-button"
+                    id="addEmployeeButton"
+                >
+                    <span>+</span>
+                    Add Employee
+                </button>
+
+            </div>
+
+
+            <!-- ======================================
+                 SUMMARY
+            ======================================= -->
+
+            <div class="employee-summary-grid">
+
+                <div class="employee-summary-card">
+
+                    <div class="summary-card-icon">
+                        👥
+                    </div>
+
+                    <div>
+
+                        <span>Total Employees</span>
+
+                        <strong id="employeeTotal">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="employee-summary-card">
+
+                    <div class="summary-card-icon">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <span>Active</span>
+
+                        <strong id="employeeActive">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="employee-summary-card">
+
+                    <div class="summary-card-icon">
+                        ○
+                    </div>
+
+                    <div>
+
+                        <span>Inactive</span>
+
+                        <strong id="employeeInactive">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ======================================
+                 FILTER BAR
+            ======================================= -->
+
+            <div class="filter-card">
+
+                <div class="filter-group search-group">
+
+                    <label for="employeeSearch">
+                        Search
+                    </label>
+
+                    <div class="search-input-wrapper">
+
+                        <span class="search-icon">
+                            ⌕
+                        </span>
+
+                        <input
+                            type="text"
+                            id="employeeSearch"
+                            placeholder="Search by name, code or email..."
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="filter-group">
+
+                    <label for="departmentFilter">
+                        Department
+                    </label>
+
+                    <select id="departmentFilter">
+
+                        <option value="">
+                            All Departments
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="filter-group">
+
+                    <label for="statusFilter">
+                        Status
+                    </label>
+
+                    <select id="statusFilter">
+
+                        <option value="">
+                            All Status
+                        </option>
+
+                        <option value="ACTIVE">
+                            Active
+                        </option>
+
+                        <option value="INACTIVE">
+                            Inactive
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="clearFiltersButton"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+
+            <!-- ======================================
+                 EMPLOYEE TABLE CARD
+            ======================================= -->
+
+            <div class="table-card">
+
+                <div class="table-card-header">
+
+                    <div>
+
+                        <h3>
+                            Employees
+                        </h3>
+
+                        <p id="employeeResultCount">
+                            Loading employees...
+                        </p>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="refresh-button"
+                        id="refreshEmployeesButton"
+                        title="Refresh employees"
+                    >
+                        ↻
+                    </button>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table class="employees-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Employee</th>
+
+                                <th>Employee Code</th>
+
+                                <th>Department</th>
+
+                                <th>Designation</th>
+
+                                <th>Contact</th>
+
+                                <th>Joining Date</th>
+
+                                <th>Status</th>
+
+                                <th>Actions</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="employeesTableBody">
+
+                            <tr>
+
+                                <td
+                                    colspan="8"
+                                    class="table-message"
+                                >
+                                    Loading employees...
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- ==========================================
+     DEACTIVATE MODAL
+=========================================== -->
+
+<div
+    class="modal-overlay hidden"
+    id="deactivateModal"
+>
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div>
+
+                <span class="modal-eyebrow">
+                    Employee Account
+                </span>
+
+                <h3>
+                    Deactivate Employee
+                </h3>
+
+            </div>
+
+            <button
+                type="button"
+                class="modal-close"
+                id="closeDeactivateModal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="modal-body">
+
+            <p>
+                Are you sure you want to deactivate
+                <strong id="deactivateEmployeeName">
+                    this employee
+                </strong>?
+            </p>
+
+            <p class="modal-warning">
+                The employee will no longer be able to use
+                their account to access the attendance system.
+            </p>
+
+        </div>
+
+
+        <div class="modal-footer">
+
+            <button
+                type="button"
+                class="secondary-button"
+                id="cancelDeactivateButton"
+            >
+                Cancel
+            </button>
+
+            <button
+                type="button"
+                class="danger-button"
+                id="confirmDeactivateButton"
+            >
+                Deactivate
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     SCRIPTS
+=========================================== -->
+
+<script src="../js/config.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/employees.js"></script>
+
+</body>
+</html>

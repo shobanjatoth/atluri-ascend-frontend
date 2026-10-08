@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Departments | Atluri ASCEND™</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/departments.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/responsive.css"
+    >
+
+</head>
+
+
+<body>
+
+<div class="app-shell">
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+        <!-- BRAND -->
+
+        <div class="sidebar-brand">
+
+            <div class="brand-text">
+
+                <h2>
+                    Atluri ASCEND™
+                </h2>
+
+                <span>
+                    Admin Portal
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="sidebar-nav">
+
+
+            <a
+                href="../index.html"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">
+                    ⌂
+                </span>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <a
+                href="employees.html"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">
+                    ♙
+                </span>
+
+                <span>
+                    Employees
+                </span>
+
+            </a>
+
+
+            <a
+                href="departments.html"
+                class="nav-item active"
+            >
+
+                <span class="nav-icon">
+                    ▦
+                </span>
+
+                <span>
+                    Departments
+                </span>
+
+            </a>
+
+
+            <a
+                href="attendance.html"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">
+                    ✓
+                </span>
+
+                <span>
+                    Attendance
+                </span>
+
+            </a>
+
+
+            <a
+                href="qr-access.html"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">
+                    ▣
+                </span>
+
+                <span>
+                    QR Access
+                </span>
+
+            </a>
+
+
+            <a
+                href="reports.html"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">
+                    ▤
+                </span>
+
+                <span>
+                    Reports
+                </span>
+
+            </a>
+
+
+            <a
+                href="audit-logs.html"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">
+                    ◷
+                </span>
+
+                <span>
+                    Audit Logs
+                </span>
+
+            </a>
+
+
+        </nav>
+
+
+        <!-- SIDEBAR FOOTER -->
+
+        <div class="sidebar-footer">
+
+            <div class="sidebar-footer-line"></div>
+
+            <div class="sidebar-footer-content">
+
+                <span>
+                    Secure Attendance
+                </span>
+
+                <small>
+                    Atluri ASCEND™
+                </small>
+
+            </div>
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             TOPBAR
+             ================================================= -->
+
+        <header class="topbar">
+
+
+            <div class="topbar-left">
+
+
+                <button
+                    type="button"
+                    class="mobile-menu-button"
+                    id="mobileMenuButton"
+                    aria-label="Open menu"
+                >
+                    ☰
+                </button>
+
+
+                <div>
+
+                    <span class="topbar-label">
+                        Administration
+                    </span>
+
+                    <h1>
+                        Departments
+                    </h1>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- TOPBAR RIGHT -->
+
+            <div class="topbar-right">
+
+
+                <div class="topbar-date">
+
+                    <span>
+                        Today
+                    </span>
+
+                    <strong id="currentDate">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="admin-profile">
+
+                    <div class="admin-avatar">
+                        A
+                    </div>
+
+
+                    <div class="admin-info">
+
+                        <strong id="currentUsername">
+                            Admin
+                        </strong>
+
+                        <span>
+                            Administrator
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="logout-button"
+                    id="logoutButton"
+                >
+                    Logout
+                </button>
+
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- =================================================
+             PAGE CONTENT
+             ================================================= -->
+
+        <section class="page-content">
+
+
+            <!-- =================================================
+                 PAGE HEADER
+                 ================================================= -->
+
+            <div class="department-page-header">
+
+
+                <div>
+
+                    <span class="section-eyebrow">
+                        Organization
+                    </span>
+
+
+                    <h2>
+                        Department Directory
+                    </h2>
+
+
+                    <p>
+                        Manage organizational departments and
+                        view employee allocation.
+                    </p>
+
+                </div>
+
+
+
+                <!-- ADD DEPARTMENT -->
+
+                <button
+                    type="button"
+                    id="addDepartmentButton"
+                    class="primary-button add-department-button"
+                >
+
+                    <span class="add-button-icon">
+                        +
+                    </span>
+
+                    <span>
+                        Add Department
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SUMMARY CARDS
+                 ================================================= -->
+
+            <div class="department-summary-grid">
+
+
+                <!-- TOTAL -->
+
+                <div class="department-summary-card">
+
+                    <div class="summary-icon">
+                        ▦
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Total Departments
+                        </span>
+
+                        <strong id="departmentTotal">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ASSIGNED -->
+
+                <div class="department-summary-card">
+
+                    <div class="summary-icon">
+                        ♙
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Employees Assigned
+                        </span>
+
+                        <strong id="assignedEmployees">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- UNASSIGNED -->
+
+                <div class="department-summary-card">
+
+                    <div class="summary-icon">
+                        ◉
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Unassigned Employees
+                        </span>
+
+                        <strong id="unassignedEmployees">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 DEPARTMENT CARD
+                 ================================================= -->
+
+            <div class="department-card">
+
+
+                <!-- CARD HEADER -->
+
+                <div class="department-card-header">
+
+
+                    <div>
+
+                        <h3>
+                            Departments
+                        </h3>
+
+                        <p>
+                            View and manage all departments.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- SEARCH -->
+
+                    <div class="department-search-wrapper">
+
+
+                        <span
+                            class="search-icon"
+                            aria-hidden="true"
+                        >
+                            ⌕
+                        </span>
+
+
+                        <input
+                            type="text"
+                            id="departmentSearch"
+                            class="department-search"
+                            placeholder="Search departments..."
+                            autocomplete="off"
+                        >
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     LOADING
+                     ================================================= -->
+
+                <div
+                    class="department-loading"
+                    id="departmentLoading"
+                >
+
+                    <div class="loading-spinner"></div>
+
+                    <span>
+                        Loading departments...
+                    </span>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     ERROR
+                     ================================================= -->
+
+                <div
+                    class="department-error"
+                    id="departmentError"
+                    hidden
+                >
+
+                    <strong>
+                        Unable to load departments.
+                    </strong>
+
+
+                    <span id="departmentErrorMessage">
+                        Please try again.
+                    </span>
+
+
+                    <button
+                        type="button"
+                        id="retryDepartmentsButton"
+                        class="secondary-button"
+                    >
+                        Retry
+                    </button>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     TABLE
+                     ================================================= -->
+
+                <div
+                    class="department-table-wrapper"
+                    id="departmentTableWrapper"
+                    hidden
+                >
+
+
+                    <table class="department-table">
+
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Department
+                                </th>
+
+                                <th>
+                                    Employees
+                                </th>
+
+                                <th>
+                                    Created
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Actions
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody
+                            id="departmentsTableBody"
+                        >
+                        </tbody>
+
+
+                    </table>
+
+
+
+                    <!-- =================================================
+                         EMPTY STATE
+                         ================================================= -->
+
+                    <div
+                        class="department-empty"
+                        id="departmentEmpty"
+                        hidden
+                    >
+
+                        <div class="empty-icon">
+                            ▦
+                        </div>
+
+
+                        <h3>
+                            No departments found
+                        </h3>
+
+
+                        <p>
+                            Create a department to start
+                            organizing employees.
+                        </p>
+
+
+                        <button
+                            type="button"
+                            class="primary-button"
+                            id="emptyAddDepartmentButton"
+                        >
+                            Add Department
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             FOOTER
+             ================================================= -->
+
+        <footer class="app-footer">
+
+            <span>
+                © 2026 Atluri ASCEND™
+            </span>
+
+            <span>
+                Employee Attendance Management System
+            </span>
+
+        </footer>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     ADD / EDIT DEPARTMENT MODAL
+     ========================================================= -->
+
+<div
+    class="modal-overlay"
+    id="departmentModal"
+    hidden
+>
+
+
+    <div
+        class="department-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="departmentModalTitle"
+    >
+
+
+        <!-- MODAL HEADER -->
+
+        <div class="modal-header">
+
+
+            <div>
+
+                <span class="section-eyebrow">
+                    Organization
+                </span>
+
+
+                <h2 id="departmentModalTitle">
+                    Add Department
+                </h2>
+
+
+                <p id="departmentModalDescription">
+                    Create a new department.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="modal-close"
+                id="closeDepartmentModal"
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+
+        </div>
+
+
+
+        <!-- FORM -->
+
+        <form id="departmentForm">
+
+
+            <div class="form-group">
+
+
+                <label for="departmentName">
+
+                    Department Name
+
+                    <span>
+                        *
+                    </span>
+
+                </label>
+
+
+                <input
+                    type="text"
+                    id="departmentName"
+                    name="name"
+                    placeholder="e.g. Human Resources"
+                    maxlength="100"
+                    autocomplete="off"
+                    required
+                >
+
+
+                <small>
+                    Enter a unique department name.
+                </small>
+
+
+            </div>
+
+
+
+            <!-- FORM ERROR -->
+
+            <div
+                class="form-alert"
+                id="departmentFormError"
+                hidden
+            >
+
+                <strong>
+                    Unable to save department.
+                </strong>
+
+
+                <span id="departmentFormErrorMessage">
+                </span>
+
+            </div>
+
+
+
+            <!-- ACTIONS -->
+
+            <div class="modal-actions">
+
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="cancelDepartmentButton"
+                >
+                    Cancel
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                    id="saveDepartmentButton"
+                >
+                    Save Department
+                </button>
+
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     DELETE DEPARTMENT MODAL
+     ========================================================= -->
+
+<div
+    class="modal-overlay"
+    id="deleteDepartmentModal"
+    hidden
+>
+
+
+    <div
+        class="department-modal delete-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="deleteDepartmentTitle"
+    >
+
+
+        <div class="delete-icon">
+            !
+        </div>
+
+
+        <h2 id="deleteDepartmentTitle">
+            Delete Department?
+        </h2>
+
+
+        <p>
+
+            Are you sure you want to delete
+
+            <strong id="deleteDepartmentName">
+                this department
+            </strong>?
+
+        </p>
+
+
+        <p class="delete-warning">
+
+            A department cannot be deleted if employees
+            are currently assigned to it.
+
+        </p>
+
+
+
+        <!-- DELETE ERROR -->
+
+        <div
+            class="form-alert"
+            id="deleteDepartmentError"
+            hidden
+        >
+
+            <strong>
+                Unable to delete department.
+            </strong>
+
+
+            <span id="deleteDepartmentErrorMessage">
+            </span>
+
+        </div>
+
+
+
+        <!-- ACTIONS -->
+
+        <div class="modal-actions">
+
+
+            <button
+                type="button"
+                class="secondary-button"
+                id="cancelDeleteButton"
+            >
+                Cancel
+            </button>
+
+
+            <button
+                type="button"
+                class="danger-button"
+                id="confirmDeleteButton"
+            >
+                Delete Department
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+
+<script src="../js/config.js"></script>
+
+<script src="../js/api.js"></script>
+
+<script src="../js/auth.js"></script>
+
+<script src="../js/departments.js"></script>
+
+
+</body>
+
+</html>

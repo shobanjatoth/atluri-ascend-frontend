@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Employee Login | Atluri ASCEND™</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+<div class="employee-login-page">
+
+    <!-- LEFT BRAND PANEL -->
+    <section class="login-brand-panel">
+
+        <div class="brand-content">
+
+            <div class="brand-logo">
+                <img
+                    src="../assets/images/atluri-logo.png"
+                    alt="Atluri ASCEND"
+                >
+            </div>
+
+            <span class="brand-eyebrow">
+                Employee Access
+            </span>
+
+            <h1>
+                Welcome to
+                <strong>Atluri ASCEND™</strong>
+            </h1>
+
+            <p>
+                Secure employee access for attendance,
+                QR check-in and workplace activity.
+            </p>
+
+            <div class="brand-features">
+
+                <div class="brand-feature">
+                    <div class="feature-icon">✓</div>
+                    <div>
+                        <strong>Secure Attendance</strong>
+                        <span>Protected employee check-in and check-out.</span>
+                    </div>
+                </div>
+
+                <div class="brand-feature">
+                    <div class="feature-icon">▣</div>
+                    <div>
+                        <strong>QR Access</strong>
+                        <span>Scan the entrance QR to record attendance.</span>
+                    </div>
+                </div>
+
+                <div class="brand-feature">
+                    <div class="feature-icon">◷</div>
+                    <div>
+                        <strong>Attendance History</strong>
+                        <span>View your attendance records anytime.</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="brand-footer">
+            © 2026 Atluri ASCEND™
+        </div>
+
+    </section>
+
+
+    <!-- LOGIN PANEL -->
+    <section class="login-form-panel">
+
+        <div class="login-card">
+
+            <div class="login-card-header">
+
+                <span class="login-eyebrow">
+                    Employee Portal
+                </span>
+
+                <h2>
+                    Sign in
+                </h2>
+
+                <p>
+                    Use your employee credentials to continue.
+                </p>
+
+            </div>
+
+
+            <form id="employeeLoginForm" novalidate>
+
+                <!-- USERNAME -->
+                <div class="login-field">
+
+                    <label for="username">
+                        Username
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            ◉
+                        </span>
+
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            placeholder="Enter your username"
+                            autocomplete="username"
+                            required
+                        >
+
+                    </div>
+
+                    <small
+                        class="field-error"
+                        id="usernameError"
+                    ></small>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+                <div class="login-field">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            ●
+                        </span>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="togglePassword"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+                    <small
+                        class="field-error"
+                        id="passwordError"
+                    ></small>
+
+                </div>
+
+
+                <!-- ALERT -->
+                <div
+                    class="login-alert hidden"
+                    id="loginAlert"
+                ></div>
+
+
+                <!-- SUBMIT -->
+                <button
+                    type="submit"
+                    class="employee-login-button"
+                    id="employeeLoginButton"
+                >
+                    <span id="loginButtonText">
+                        Sign In
+                    </span>
+                </button>
+
+            </form>
+
+
+            <div class="login-security">
+
+                <span class="security-mark">
+                    ⛨
+                </span>
+
+                <div>
+                    <strong>Secure Login</strong>
+                    <span>
+                        Your credentials are protected by the
+                        Atluri ASCEND™ authentication system.
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<script src="../js/config.js"></script>
+<script src="../js/api.js"></script>
+<script src="js/login.js"></script>
+
+</body>
+</html>

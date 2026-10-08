@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Attendance | Atluri ASCEND™</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/attendance.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-logo">
+                <img
+                    src="../assets/images/atluri-logo.png"
+                    alt="Atluri ASCEND"
+                    onerror="this.style.display='none'"
+                >
+            </div>
+
+            <div class="brand-text">
+                <h2>Atluri ASCEND™</h2>
+                <span>Employee Management</span>
+            </div>
+
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="../index.html" class="nav-item">
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="employees.html" class="nav-item">
+                <span class="nav-icon">👥</span>
+                <span>Employees</span>
+            </a>
+
+            <a href="departments.html" class="nav-item">
+                <span class="nav-icon">▦</span>
+                <span>Departments</span>
+            </a>
+
+            <a href="attendance.html" class="nav-item active">
+                <span class="nav-icon">◷</span>
+                <span>Attendance</span>
+            </a>
+
+            <a href="qr-access.html" class="nav-item">
+                <span class="nav-icon">▣</span>
+                <span>QR Access</span>
+            </a>
+
+            <a href="reports.html" class="nav-item">
+                <span class="nav-icon">▤</span>
+                <span>Reports</span>
+            </a>
+
+            <a href="audit-logs.html" class="nav-item">
+                <span class="nav-icon">◉</span>
+                <span>Audit Logs</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="sidebar-security">
+                <span class="security-dot"></span>
+                <span>System Secure</span>
+            </div>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    class="mobile-menu-button"
+                    id="mobileMenuButton"
+                    type="button"
+                >
+                    ☰
+                </button>
+
+                <div>
+                    <h1>Attendance</h1>
+                    <p id="currentDate">Loading date...</p>
+                </div>
+
+            </div>
+
+            <div class="topbar-right">
+
+                <div class="admin-profile">
+
+                    <div class="admin-avatar">
+                        A
+                    </div>
+
+                    <div class="admin-info">
+                        <strong id="currentUsername">Admin</strong>
+                        <span>Administrator</span>
+                    </div>
+
+                </div>
+
+                <button
+                    class="logout-button"
+                    id="logoutButton"
+                    type="button"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTENT -->
+        <section class="page-content attendance-page">
+
+            <!-- PAGE HEADER -->
+            <div class="page-header">
+
+                <div>
+
+                    <span class="page-eyebrow">
+                        Workforce Tracking
+                    </span>
+
+                    <h2>Attendance Management</h2>
+
+                    <p>
+                        Monitor employee check-ins, check-outs and working hours.
+                    </p>
+
+                </div>
+
+                <div class="attendance-live-indicator">
+                    <span class="live-dot"></span>
+                    Live Attendance
+                </div>
+
+            </div>
+
+
+            <!-- SUMMARY -->
+            <section class="attendance-summary-grid">
+
+                <article class="attendance-stat-card">
+
+                    <div class="attendance-stat-icon">
+                        #
+                    </div>
+
+                    <div>
+                        <span>Total Records</span>
+                        <strong id="totalAttendance">0</strong>
+                    </div>
+
+                </article>
+
+
+                <article class="attendance-stat-card">
+
+                    <div class="attendance-stat-icon">
+                        ✓
+                    </div>
+
+                    <div>
+                        <span>Checked Out</span>
+                        <strong id="checkedOutCount">0</strong>
+                    </div>
+
+                </article>
+
+
+                <article class="attendance-stat-card">
+
+                    <div class="attendance-stat-icon">
+                        ◉
+                    </div>
+
+                    <div>
+                        <span>Currently Inside</span>
+                        <strong id="insideCount">0</strong>
+                    </div>
+
+                </article>
+
+
+                <article class="attendance-stat-card">
+
+                    <div class="attendance-stat-icon">
+                        !
+                    </div>
+
+                    <div>
+                        <span>Late Arrivals</span>
+                        <strong id="lateCount">0</strong>
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- FILTERS -->
+            <section class="attendance-filter-card">
+
+                <div class="attendance-filter-header">
+
+                    <div>
+                        <h3>Attendance Filters</h3>
+                        <p>
+                            Filter records by date, department or employee.
+                        </p>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="text-button"
+                        id="clearAttendanceFilters"
+                    >
+                        Clear Filters
+                    </button>
+
+                </div>
+
+
+                <div class="attendance-filters">
+
+                    <div class="attendance-form-group">
+
+                        <label for="attendanceDate">
+                            Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="attendanceDate"
+                        >
+
+                    </div>
+
+
+                    <div class="attendance-form-group">
+
+                        <label for="departmentFilter">
+                            Department
+                        </label>
+
+                        <select id="departmentFilter">
+
+                            <option value="">
+                                All Departments
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="attendance-form-group">
+
+                        <label for="employeeFilter">
+                            Employee
+                        </label>
+
+                        <select id="employeeFilter">
+
+                            <option value="">
+                                All Employees
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="attendance-form-group">
+
+                        <label for="statusFilter">
+                            Status
+                        </label>
+
+                        <select id="statusFilter">
+
+                            <option value="">
+                                All Status
+                            </option>
+
+                            <option value="INSIDE">
+                                Inside
+                            </option>
+
+                            <option value="OUTSIDE">
+                                Checked Out
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="primary-button"
+                        id="applyAttendanceFilters"
+                    >
+                        Apply Filters
+                    </button>
+
+                </div>
+
+                <div
+                    id="attendanceFilterError"
+                    class="attendance-filter-error"
+                    hidden
+                ></div>
+
+            </section>
+
+
+            <!-- TABLE -->
+            <section class="attendance-table-card">
+
+                <div class="attendance-table-header">
+
+                    <div>
+
+                        <h3>Attendance Records</h3>
+
+                        <p id="attendanceResultText">
+                            Loading attendance records...
+                        </p>
+
+                    </div>
+
+                    <div
+                        id="attendanceLoading"
+                        class="attendance-loading"
+                        hidden
+                    >
+                        Loading...
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="attendanceError"
+                    class="attendance-error"
+                    hidden
+                ></div>
+
+
+                <div class="attendance-table-wrapper">
+
+                    <table class="data-table attendance-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>Employee</th>
+                                <th>Department</th>
+                                <th>Date</th>
+                                <th>Check In</th>
+                                <th>Check Out</th>
+                                <th>Working Hours</th>
+                                <th>Status</th>
+                                <th>Late</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="attendanceTableBody">
+
+                            <tr>
+                                <td
+                                    colspan="8"
+                                    class="attendance-empty"
+                                >
+                                    Loading attendance records...
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="../js/config.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/attendance.js"></script>
+
+</body>
+</html>

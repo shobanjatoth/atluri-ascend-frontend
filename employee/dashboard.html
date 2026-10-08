@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Employee Dashboard | Atluri ASCEND™</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+
+<div class="employee-app">
+
+    <!-- SIDEBAR -->
+    <aside class="employee-sidebar" id="employeeSidebar">
+
+        <div class="employee-brand">
+
+            <img
+                src="../assets/images/atluri-logo.png"
+                alt="Atluri ASCEND"
+            >
+
+            <div>
+                <strong>Atluri ASCEND™</strong>
+                <span>Employee Portal</span>
+            </div>
+
+        </div>
+
+
+        <nav class="employee-nav">
+
+            <a href="dashboard.html" class="employee-nav-item active">
+                <span>⌂</span>
+                <strong>Dashboard</strong>
+            </a>
+
+            <a href="scanner.html" class="employee-nav-item">
+                <span>▣</span>
+                <strong>Scan QR</strong>
+            </a>
+
+            <a href="attendance.html" class="employee-nav-item">
+                <span>◷</span>
+                <strong>My Attendance</strong>
+            </a>
+
+            <a href="profile.html" class="employee-nav-item">
+                <span>◉</span>
+                <strong>My Profile</strong>
+            </a>
+
+        </nav>
+
+
+        <div class="employee-sidebar-footer">
+
+            <div class="secure-badge">
+                <span>⛨</span>
+                <div>
+                    <strong>Secure Access</strong>
+                    <small>Atluri ASCEND™</small>
+                </div>
+            </div>
+
+            <button
+                type="button"
+                class="employee-logout"
+                id="logoutButton"
+            >
+                ↪
+                <span>Sign Out</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="employee-main">
+
+        <!-- TOPBAR -->
+        <header class="employee-topbar">
+
+            <div class="topbar-mobile-left">
+
+                <button
+                    type="button"
+                    class="employee-menu-button"
+                    id="mobileMenuButton"
+                >
+                    ☰
+                </button>
+
+                <div>
+                    <span>Employee Portal</span>
+                    <h1>Dashboard</h1>
+                </div>
+
+            </div>
+
+
+            <div class="employee-topbar-right">
+
+                <div class="employee-date">
+
+                    <span>Today</span>
+
+                    <strong id="currentDate">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="employee-user">
+
+                    <div
+                        class="employee-avatar"
+                        id="employeeAvatar"
+                    >
+                        E
+                    </div>
+
+                    <div>
+                        <strong id="currentUsername">
+                            Employee
+                        </strong>
+
+                        <span>
+                            Employee
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTENT -->
+        <section class="employee-content">
+
+
+            <!-- WELCOME -->
+            <div class="employee-welcome">
+
+                <div>
+
+                    <span class="dashboard-eyebrow">
+                        Employee Dashboard
+                    </span>
+
+                    <h2>
+                        Welcome back,
+                        <span id="welcomeName">
+                            Employee
+                        </span>
+                    </h2>
+
+                    <p>
+                        Manage your attendance and access
+                        your employee information.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="scanner.html"
+                    class="scan-now-button"
+                >
+                    <span>▣</span>
+                    Scan QR
+                </a>
+
+            </div>
+
+
+            <!-- TODAY STATUS -->
+            <div class="today-status-card">
+
+                <div class="today-status-left">
+
+                    <div class="status-icon">
+                        ◷
+                    </div>
+
+                    <div>
+
+                        <span class="status-label">
+                            Today's Attendance
+                        </span>
+
+                        <h3 id="attendanceStatus">
+                            Not Checked In
+                        </h3>
+
+                        <p id="attendanceMessage">
+                            Scan the entrance QR code to
+                            record your attendance.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="today-status-right">
+
+                    <div class="time-block">
+
+                        <span>
+                            Check In
+                        </span>
+
+                        <strong id="checkInTime">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="status-divider"></div>
+
+
+                    <div class="time-block">
+
+                        <span>
+                            Check Out
+                        </span>
+
+                        <strong id="checkOutTime">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUICK ACTIONS -->
+            <div class="section-header">
+
+                <div>
+                    <span>Quick Access</span>
+                    <h3>What would you like to do?</h3>
+                </div>
+
+            </div>
+
+
+            <div class="quick-action-grid">
+
+                <a
+                    href="scanner.html"
+                    class="quick-action-card primary-action"
+                >
+
+                    <div class="quick-action-icon">
+                        ▣
+                    </div>
+
+                    <div>
+                        <strong>
+                            Scan Entrance QR
+                        </strong>
+
+                        <span>
+                            Check in or check out
+                            using the entrance QR.
+                        </span>
+                    </div>
+
+                    <b>→</b>
+
+                </a>
+
+
+                <a
+                    href="attendance.html"
+                    class="quick-action-card"
+                >
+
+                    <div class="quick-action-icon">
+                        ◷
+                    </div>
+
+                    <div>
+                        <strong>
+                            Attendance History
+                        </strong>
+
+                        <span>
+                            View your previous attendance
+                            records.
+                        </span>
+                    </div>
+
+                    <b>→</b>
+
+                </a>
+
+
+                <a
+                    href="profile.html"
+                    class="quick-action-card"
+                >
+
+                    <div class="quick-action-icon">
+                        ◉
+                    </div>
+
+                    <div>
+                        <strong>
+                            My Profile
+                        </strong>
+
+                        <span>
+                            View your employee and
+                            account details.
+                        </span>
+                    </div>
+
+                    <b>→</b>
+
+                </a>
+
+            </div>
+
+
+            <!-- RECENT ATTENDANCE -->
+            <div class="attendance-section">
+
+                <div class="section-header">
+
+                    <div>
+                        <span>Recent Activity</span>
+                        <h3>Attendance History</h3>
+                    </div>
+
+                    <a href="attendance.html">
+                        View All →
+                    </a>
+
+                </div>
+
+
+                <div class="attendance-card">
+
+                    <div class="attendance-table-wrapper">
+
+                        <table class="employee-attendance-table">
+
+                            <thead>
+
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Check In</th>
+                                    <th>Check Out</th>
+                                    <th>Working Time</th>
+                                    <th>Status</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="attendanceTableBody">
+
+                                <tr>
+                                    <td
+                                        colspan="5"
+                                        class="table-loading"
+                                    >
+                                        Loading attendance...
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SECURITY -->
+            <div class="employee-security-card">
+
+                <div class="security-card-icon">
+                    ⛨
+                </div>
+
+                <div>
+
+                    <strong>
+                        Secure Employee Access
+                    </strong>
+
+                    <p>
+                        Attendance actions are validated by
+                        the Atluri ASCEND™ server using your
+                        authenticated employee account and
+                        temporary QR sessions.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer class="employee-footer">
+
+            <span>
+                © 2026 Atluri ASCEND™
+            </span>
+
+            <span>
+                Employee Attendance Management System
+            </span>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<script src="../js/config.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/auth.js"></script>
+<script src="js/dashboard.js"></script>
+
+</body>
+</html>

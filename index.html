@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Atluri ASCEND Employee Attendance Management System"
+    >
+
+    <title>Atluri ASCEND™</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+</head>
+
+
+<body>
+
+    <div class="app-shell">
+
+
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+
+        <aside class="sidebar">
+
+            <!-- BRAND -->
+
+            <div class="brand">
+
+                <div class="brand-mark">
+                    A
+                </div>
+
+                <div class="brand-text">
+                    <h1>Atluri</h1>
+                    <span>ASCEND™</span>
+                </div>
+
+            </div>
+
+
+            <!-- NAVIGATION -->
+
+            <nav class="sidebar-nav">
+
+                <!-- MAIN -->
+
+                <p class="nav-label">
+                    MAIN
+                </p>
+
+
+                <!-- DASHBOARD -->
+
+                <a
+                    href="index.html"
+                    class="nav-item active"
+                >
+                    <span class="nav-icon">
+                        ⌂
+                    </span>
+
+                    <span>
+                        Dashboard
+                    </span>
+                </a>
+
+
+                <!-- EMPLOYEES -->
+
+                <a
+                    href="pages/employees.html"
+                    class="nav-item"
+                >
+                    <span class="nav-icon">
+                        ♙
+                    </span>
+
+                    <span>
+                        Employees
+                    </span>
+                </a>
+
+
+                <!-- DEPARTMENTS -->
+
+                <a
+                    href="pages/departments.html"
+                    class="nav-item"
+                >
+                    <span class="nav-icon">
+                        ▦
+                    </span>
+
+                    <span>
+                        Departments
+                    </span>
+                </a>
+
+
+                <!-- ATTENDANCE -->
+
+                <a
+                    href="pages/attendance.html"
+                    class="nav-item"
+                >
+                    <span class="nav-icon">
+                        ◷
+                    </span>
+
+                    <span>
+                        Attendance
+                    </span>
+                </a>
+
+
+                <!-- MANAGEMENT -->
+
+                <p class="nav-label">
+                    MANAGEMENT
+                </p>
+
+
+                <!-- QR ACCESS -->
+
+                <a
+                    href="pages/qr-access.html"
+                    class="nav-item"
+                >
+                    <span class="nav-icon">
+                        ▣
+                    </span>
+
+                    <span>
+                        QR Access
+                    </span>
+                </a>
+
+
+                <!-- REPORTS -->
+
+                <a
+                    href="pages/reports.html"
+                    class="nav-item"
+                >
+                    <span class="nav-icon">
+                        ▤
+                    </span>
+
+                    <span>
+                        Reports
+                    </span>
+                </a>
+
+
+                <!-- AUDIT LOGS -->
+
+                <a
+                    href="pages/audit-logs.html"
+                    class="nav-item"
+                >
+                    <span class="nav-icon">
+                        ◉
+                    </span>
+
+                    <span>
+                        Audit Logs
+                    </span>
+                </a>
+
+            </nav>
+
+
+            <!-- SIDEBAR BOTTOM -->
+
+            <div class="sidebar-bottom">
+
+
+                <!-- SYSTEM STATUS -->
+
+                <div class="system-status">
+
+                    <span class="status-dot"></span>
+
+                    <div>
+
+                        <strong>
+                            System Online
+                        </strong>
+
+                        <small>
+                            All services operational
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LOGOUT -->
+
+                <button
+                    class="logout-button"
+                    id="logoutButton"
+                >
+
+                    <span>
+                        ↪
+                    </span>
+
+                    Sign Out
+
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================== -->
+
+        <main class="main-content">
+
+
+            <!-- =========================
+                 TOPBAR
+            ========================== -->
+
+            <header class="topbar">
+
+
+                <!-- MOBILE MENU -->
+
+                <button
+                    class="mobile-menu-button"
+                    id="mobileMenuButton"
+                >
+                    ☰
+                </button>
+
+
+                <!-- PAGE HEADING -->
+
+                <div class="page-heading">
+
+                    <span class="eyebrow">
+                        ADMINISTRATION
+                    </span>
+
+                    <h2 id="pageTitle">
+                        Dashboard
+                    </h2>
+
+                </div>
+
+
+                <!-- TOPBAR ACTIONS -->
+
+                <div class="topbar-actions">
+
+
+                    <!-- NOTIFICATION -->
+
+                    <button
+                        class="icon-button"
+                        type="button"
+                    >
+
+                        🔔
+
+                        <span
+                            class="notification-dot"
+                        ></span>
+
+                    </button>
+
+
+                    <!-- USER PROFILE -->
+
+                    <div class="user-profile">
+
+                        <div class="avatar">
+                            A
+                        </div>
+
+                        <div class="user-info">
+
+                            <strong
+                                id="currentUsername"
+                            >
+                                Administrator
+                            </strong>
+
+                            <span>
+                                System Admin
+                            </span>
+
+                        </div>
+
+                        <span class="profile-arrow">
+                            ▾
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- =========================
+                 PAGE CONTENT
+            ========================== -->
+
+            <section
+                class="content-area"
+                id="pageContent"
+            >
+
+
+                <!-- =========================
+                     DASHBOARD
+                ========================== -->
+
+                <div id="dashboardPage">
+
+
+                    <!-- WELCOME -->
+
+                    <div class="welcome-row">
+
+                        <div>
+
+                            <p class="section-kicker">
+                                OVERVIEW
+                            </p>
+
+                            <h3>
+                                Good morning, Administrator
+                            </h3>
+
+                            <p class="section-description">
+                                Here's what's happening across
+                                Atluri ASCEND™ today.
+                            </p>
+
+                        </div>
+
+
+                        <!-- DATE -->
+
+                        <div class="date-display">
+
+                            <span>
+                                Today
+                            </span>
+
+                            <strong id="currentDate">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =========================
+                         KPI CARDS
+                    ========================== -->
+
+                    <div class="stats-grid">
+
+
+                        <!-- TOTAL EMPLOYEES -->
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon employees">
+                                ♙
+                            </div>
+
+                            <div class="stat-content">
+
+                                <span>
+                                    Total Employees
+                                </span>
+
+                                <strong id="totalEmployees">
+                                    —
+                                </strong>
+
+                                <small>
+                                    Registered employees
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- PRESENT -->
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon present">
+                                ✓
+                            </div>
+
+                            <div class="stat-content">
+
+                                <span>
+                                    Present Today
+                                </span>
+
+                                <strong id="presentToday">
+                                    —
+                                </strong>
+
+                                <small>
+                                    Employees checked in
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- CURRENTLY INSIDE -->
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon inside">
+                                ◷
+                            </div>
+
+                            <div class="stat-content">
+
+                                <span>
+                                    Currently Inside
+                                </span>
+
+                                <strong id="currentlyInside">
+                                    —
+                                </strong>
+
+                                <small>
+                                    Currently at office
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- LATE -->
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon late">
+                                !
+                            </div>
+
+                            <div class="stat-content">
+
+                                <span>
+                                    Late Today
+                                </span>
+
+                                <strong id="lateToday">
+                                    —
+                                </strong>
+
+                                <small>
+                                    After 09:15 AM
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =========================
+                         DASHBOARD GRID
+                    ========================== -->
+
+                    <div class="dashboard-grid">
+
+
+                        <!-- ATTENDANCE -->
+
+                        <div class="panel attendance-panel">
+
+                            <div class="panel-header">
+
+                                <div>
+
+                                    <p class="panel-kicker">
+                                        ATTENDANCE
+                                    </p>
+
+                                    <h3>
+                                        Today's Activity
+                                    </h3>
+
+                                </div>
+
+                                <a
+                                    href="pages/attendance.html"
+                                    class="panel-action"
+                                >
+                                    View all →
+                                </a>
+
+                            </div>
+
+
+                            <div class="attendance-overview">
+
+
+                                <!-- RING -->
+
+                                <div class="attendance-ring">
+
+                                    <div class="ring-inner">
+
+                                        <strong
+                                            id="attendancePercent"
+                                        >
+                                            —
+                                        </strong>
+
+                                        <span>
+                                            Present
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- LEGEND -->
+
+                                <div class="attendance-legend">
+
+
+                                    <!-- PRESENT -->
+
+                                    <div class="legend-item">
+
+                                        <span
+                                            class="legend-dot present-dot"
+                                        ></span>
+
+                                        <div>
+
+                                            <strong
+                                                id="presentLegend"
+                                            >
+                                                —
+                                            </strong>
+
+                                            <span>
+                                                Present
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- INSIDE -->
+
+                                    <div class="legend-item">
+
+                                        <span
+                                            class="legend-dot inside-dot"
+                                        ></span>
+
+                                        <div>
+
+                                            <strong
+                                                id="insideLegend"
+                                            >
+                                                —
+                                            </strong>
+
+                                            <span>
+                                                Inside
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- CHECKED OUT -->
+
+                                    <div class="legend-item">
+
+                                        <span
+                                            class="legend-dot checkout-dot"
+                                        ></span>
+
+                                        <div>
+
+                                            <strong
+                                                id="checkoutLegend"
+                                            >
+                                                —
+                                            </strong>
+
+                                            <span>
+                                                Checked Out
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =========================
+                             DEPARTMENTS
+                        ========================== -->
+
+                        <div class="panel department-panel">
+
+
+                            <div class="panel-header">
+
+                                <div>
+
+                                    <p class="panel-kicker">
+                                        ORGANIZATION
+                                    </p>
+
+                                    <h3>
+                                        Departments
+                                    </h3>
+
+                                </div>
+
+
+                                <a
+                                    href="pages/departments.html"
+                                    class="panel-action"
+                                >
+                                    Manage →
+                                </a>
+
+                            </div>
+
+
+                            <div
+                                class="department-list"
+                                id="departmentList"
+                            >
+
+                                <div class="empty-state">
+                                    Loading departments...
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =========================
+                         RECENT ATTENDANCE
+                    ========================== -->
+
+                    <div class="panel recent-panel">
+
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <p class="panel-kicker">
+                                    RECENT ACTIVITY
+                                </p>
+
+                                <h3>
+                                    Recent Attendance
+                                </h3>
+
+                            </div>
+
+
+                            <a
+                                href="pages/attendance.html"
+                                class="panel-action"
+                            >
+                                View attendance →
+                            </a>
+
+                        </div>
+
+
+                        <div class="table-container">
+
+                            <table>
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th>
+                                            EMPLOYEE
+                                        </th>
+
+                                        <th>
+                                            DATE
+                                        </th>
+
+                                        <th>
+                                            CHECK IN
+                                        </th>
+
+                                        <th>
+                                            CHECK OUT
+                                        </th>
+
+                                        <th>
+                                            STATUS
+                                        </th>
+
+                                        <th>
+                                            LATE
+                                        </th>
+
+                                    </tr>
+
+                                </thead>
+
+
+                                <tbody
+                                    id="recentAttendanceBody"
+                                >
+
+                                    <tr>
+
+                                        <td
+                                            colspan="6"
+                                            class="table-loading"
+                                        >
+                                            Loading attendance...
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================
+         MOBILE OVERLAY
+    ========================== -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+    ></div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="js/config.js"></script>
+
+    <script src="js/api.js"></script>
+
+    <script src="js/dashboard.js"></script>
+
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+
+                /* =========================
+                   CURRENT DATE
+                ========================== */
+
+                const dateElement =
+                    document.getElementById(
+                        "currentDate"
+                    );
+
+
+                const now =
+                    new Date();
+
+
+                if (dateElement) {
+
+                    dateElement.textContent =
+                        now.toLocaleDateString(
+                            "en-IN",
+                            {
+                                weekday: "long",
+                                day: "numeric",
+                                month: "long",
+                                year: "numeric"
+                            }
+                        );
+
+                }
+
+
+                /* =========================
+                   MOBILE MENU
+                ========================== */
+
+                const mobileButton =
+                    document.getElementById(
+                        "mobileMenuButton"
+                    );
+
+
+                const sidebar =
+                    document.querySelector(
+                        ".sidebar"
+                    );
+
+
+                const overlay =
+                    document.getElementById(
+                        "sidebarOverlay"
+                    );
+
+
+                if (
+                    mobileButton &&
+                    sidebar
+                ) {
+
+                    mobileButton.addEventListener(
+                        "click",
+                        function () {
+
+                            sidebar.classList.add(
+                                "mobile-open"
+                            );
+
+
+                            if (overlay) {
+
+                                overlay.classList.add(
+                                    "visible"
+                                );
+
+                            }
+
+                        }
+                    );
+
+                }
+
+
+                /* =========================
+                   CLOSE MOBILE MENU
+                ========================== */
+
+                if (overlay) {
+
+                    overlay.addEventListener(
+                        "click",
+                        function () {
+
+                            if (sidebar) {
+
+                                sidebar.classList.remove(
+                                    "mobile-open"
+                                );
+
+                            }
+
+
+                            overlay.classList.remove(
+                                "visible"
+                            );
+
+                        }
+                    );
+
+                }
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

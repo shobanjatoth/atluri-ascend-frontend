@@ -1,0 +1,550 @@
+/* ==========================================
+   ATLURI ASCEND
+   EMPLOYEE PORTAL LAYOUT
+========================================== */
+
+:root {
+    --employee-brown-dark: #3d2a20;
+    --employee-brown: #6f452e;
+    --employee-brown-light: #8a644b;
+
+    --employee-bg: #f7f2ec;
+    --employee-card: #ffffff;
+
+    --employee-border: #e7ddd5;
+
+    --employee-text: #342820;
+    --employee-muted: #8d7d72;
+
+    --employee-sidebar-width: 255px;
+
+    --employee-shadow:
+        0 6px 24px rgba(67, 45, 31, 0.06);
+}
+
+
+/* ==========================================
+   RESET
+========================================== */
+
+.employee-app,
+.employee-app * {
+    box-sizing: border-box;
+}
+
+.employee-app {
+    min-height: 100vh;
+    display: flex;
+    background: var(--employee-bg);
+    color: var(--employee-text);
+}
+
+
+/* ==========================================
+   SIDEBAR
+========================================== */
+
+.employee-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: var(--employee-sidebar-width);
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--employee-brown-dark);
+
+    z-index: 1000;
+}
+
+
+/* ==========================================
+   BRAND
+========================================== */
+
+.employee-brand {
+    min-height: 88px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 18px 20px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.employee-brand img {
+    width: 46px;
+    height: 46px;
+
+    flex-shrink: 0;
+
+    object-fit: contain;
+
+    border-radius: 8px;
+
+    background: #f8f0e7;
+}
+
+.employee-brand-text {
+    min-width: 0;
+}
+
+.employee-brand strong {
+    display: block;
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    line-height: 1.3;
+}
+
+.employee-brand span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: rgba(255, 255, 255, 0.58);
+
+    font-size: 10px;
+}
+
+
+/* ==========================================
+   NAVIGATION
+========================================== */
+
+.employee-nav {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+
+    padding: 22px 13px;
+}
+
+.employee-nav-item {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    min-height: 45px;
+
+    padding: 0 14px;
+
+    border-radius: 9px;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.employee-nav-item:hover {
+    color: #ffffff;
+
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.employee-nav-item.active {
+    color: #ffffff;
+
+    background: #6f452e;
+
+    box-shadow:
+        inset 3px 0 0 #d4a47f;
+}
+
+.employee-nav-item span.nav-symbol {
+    width: 22px;
+
+    text-align: center;
+
+    font-size: 16px;
+}
+
+.employee-nav-item strong {
+    font-size: 12px;
+    font-weight: 650;
+}
+
+
+/* ==========================================
+   SIDEBAR FOOTER
+========================================== */
+
+.employee-sidebar-footer {
+    margin-top: auto;
+
+    padding: 18px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.secure-badge {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 12px;
+
+    margin-bottom: 13px;
+
+    border-radius: 9px;
+
+    background: rgba(255, 255, 255, 0.055);
+}
+
+.secure-icon {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    color: #d8b79e;
+
+    font-size: 14px;
+}
+
+.secure-badge strong {
+    display: block;
+
+    color: #ffffff;
+
+    font-size: 11px;
+}
+
+.secure-badge small {
+    display: block;
+
+    margin-top: 3px;
+
+    color: rgba(255, 255, 255, 0.45);
+
+    font-size: 9px;
+}
+
+
+/* ==========================================
+   LOGOUT
+========================================== */
+
+.employee-logout {
+    width: 100%;
+
+    min-height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    cursor: pointer;
+
+    font-family: inherit;
+    font-size: 11px;
+
+    transition: 0.2s ease;
+}
+
+.employee-logout:hover {
+    background: rgba(255, 255, 255, 0.07);
+
+    color: #ffffff;
+}
+
+
+/* ==========================================
+   MAIN
+========================================== */
+
+.employee-main {
+    width: calc(100% - var(--employee-sidebar-width));
+
+    min-height: 100vh;
+
+    margin-left: var(--employee-sidebar-width);
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ==========================================
+   TOPBAR
+========================================== */
+
+.employee-topbar {
+    min-height: 78px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 32px;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid var(--employee-border);
+
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+}
+
+.topbar-mobile-left {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+}
+
+.topbar-mobile-left > div > span {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #a18f83;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.07em;
+}
+
+.topbar-mobile-left h1 {
+    margin: 0;
+
+    color: var(--employee-text);
+
+    font-size: 20px;
+    font-weight: 750;
+}
+
+.employee-topbar-right {
+    display: flex;
+    align-items: center;
+
+    gap: 28px;
+}
+
+
+/* ==========================================
+   MOBILE BUTTON
+========================================== */
+
+.employee-menu-button {
+    display: none;
+
+    width: 38px;
+    height: 38px;
+
+    border: 1px solid var(--employee-border);
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: var(--employee-text);
+
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+
+/* ==========================================
+   DATE
+========================================== */
+
+.employee-date {
+    text-align: right;
+}
+
+.employee-date span {
+    display: block;
+
+    color: #a18f83;
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.06em;
+}
+
+.employee-date strong {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #58463b;
+
+    font-size: 12px;
+}
+
+
+/* ==========================================
+   USER
+========================================== */
+
+.employee-user {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    padding-left: 18px;
+
+    border-left: 1px solid var(--employee-border);
+}
+
+.employee-avatar {
+    width: 37px;
+    height: 37px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #efe1d4;
+
+    color: #69452f;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.employee-user-details strong {
+    display: block;
+
+    color: #47372e;
+
+    font-size: 11px;
+}
+
+.employee-user-details span {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #a18f83;
+
+    font-size: 9px;
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.employee-footer {
+    margin-top: auto;
+
+    display: flex;
+    justify-content: space-between;
+
+    padding: 18px 32px;
+
+    border-top: 1px solid var(--employee-border);
+
+    background: #ffffff;
+
+    color: #a09085;
+
+    font-size: 10px;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 900px) {
+
+    .employee-sidebar {
+        transform: translateX(-100%);
+
+        transition: transform 0.25s ease;
+    }
+
+    .employee-sidebar.open {
+        transform: translateX(0);
+    }
+
+    .employee-main {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .employee-menu-button {
+        display: block;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .employee-topbar {
+        padding: 0 17px;
+    }
+
+    .employee-topbar-right {
+        gap: 10px;
+    }
+
+    .employee-date {
+        display: none;
+    }
+
+    .employee-footer {
+        flex-direction: column;
+        gap: 5px;
+
+        padding: 15px 18px;
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    .employee-user-details {
+        display: none;
+    }
+
+}

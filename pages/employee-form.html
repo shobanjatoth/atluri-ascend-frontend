@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Employee | Atluri ASCEND™</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/employee-form.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-mark">
+                A
+            </div>
+
+            <div class="brand-text">
+                <h2>Atluri ASCEND™</h2>
+                <span>Attendance Management</span>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="../index.html" class="nav-item">
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="employees.html" class="nav-item active">
+                <span class="nav-icon">♙</span>
+                <span>Employees</span>
+            </a>
+
+            <a href="departments.html" class="nav-item">
+                <span class="nav-icon">▦</span>
+                <span>Departments</span>
+            </a>
+
+            <a href="attendance.html" class="nav-item">
+                <span class="nav-icon">◷</span>
+                <span>Attendance</span>
+            </a>
+
+            <a href="qr-access.html" class="nav-item">
+                <span class="nav-icon">▣</span>
+                <span>QR Access</span>
+            </a>
+
+            <a href="reports.html" class="nav-item">
+                <span class="nav-icon">▤</span>
+                <span>Reports</span>
+            </a>
+
+            <a href="audit-logs.html" class="nav-item">
+                <span class="nav-icon">◉</span>
+                <span>Audit Logs</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-footer">
+
+            <button
+                type="button"
+                class="logout-button"
+                id="logoutButton"
+            >
+                <span>↪</span>
+                <span>Sign Out</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    type="button"
+                    class="mobile-menu-button"
+                    id="mobileMenuButton"
+                >
+                    ☰
+                </button>
+
+                <div>
+
+                    <h1 id="pageTitle">
+                        Add Employee
+                    </h1>
+
+                    <p id="currentDate">
+                        Loading date...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <div class="admin-profile">
+
+                    <div class="admin-avatar">
+                        A
+                    </div>
+
+                    <div class="admin-info">
+
+                        <strong id="currentUsername">
+                            Administrator
+                        </strong>
+
+                        <span>Administrator</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- PAGE CONTENT -->
+
+        <section class="page-content">
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="form-page-header">
+
+                <div>
+
+                    <span class="page-eyebrow">
+                        Employee Management
+                    </span>
+
+                    <h2 id="formHeading">
+                        Add New Employee
+                    </h2>
+
+                    <p id="formDescription">
+                        Create an employee account and assign their
+                        organizational details.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="backButton"
+                >
+                    ← Back to Employees
+                </button>
+
+            </div>
+
+
+            <!-- FORM CARD -->
+
+            <div class="form-card">
+
+                <form id="employeeForm" novalidate>
+
+
+                    <!-- ==================================
+                         PERSONAL INFORMATION
+                    =================================== -->
+
+                    <div class="form-section">
+
+                        <div class="section-heading">
+
+                            <div class="section-number">
+                                01
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Personal Information
+                                </h3>
+
+                                <p>
+                                    Basic employee information.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+                            <!-- NAME -->
+
+                            <div class="form-field">
+
+                                <label for="name">
+                                    Full Name
+                                    <span>*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    placeholder="Enter full name"
+                                    maxlength="150"
+                                    required
+                                >
+
+                                <small
+                                    class="field-error"
+                                    id="nameError"
+                                ></small>
+
+                            </div>
+
+
+                            <!-- EMAIL -->
+
+                            <div class="form-field">
+
+                                <label for="email">
+                                    Email Address
+                                    <span>*</span>
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    placeholder="employee@company.com"
+                                    maxlength="150"
+                                    required
+                                >
+
+                                <small
+                                    class="field-error"
+                                    id="emailError"
+                                ></small>
+
+                            </div>
+
+
+                            <!-- PHONE -->
+
+                            <div class="form-field">
+
+                                <label for="phone">
+                                    Phone Number
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    placeholder="Enter phone number"
+                                    maxlength="20"
+                                >
+
+                                <small
+                                    class="field-error"
+                                    id="phoneError"
+                                ></small>
+
+                            </div>
+
+
+                            <!-- EMPLOYEE CODE -->
+
+                            <div class="form-field">
+
+                                <label for="employeeCode">
+                                    Employee Code
+                                    <span>*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="employeeCode"
+                                    name="employeeCode"
+                                    placeholder="e.g. EMP001"
+                                    maxlength="50"
+                                    required
+                                >
+
+                                <small
+                                    class="field-error"
+                                    id="employeeCodeError"
+                                ></small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ==================================
+                         ORGANIZATION
+                    =================================== -->
+
+                    <div class="form-section">
+
+                        <div class="section-heading">
+
+                            <div class="section-number">
+                                02
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Organization
+                                </h3>
+
+                                <p>
+                                    Assign department and role.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+
+                            <!-- DEPARTMENT -->
+
+                            <div class="form-field">
+
+                                <label for="departmentId">
+                                    Department
+                                </label>
+
+                                <select
+                                    id="departmentId"
+                                    name="departmentId"
+                                >
+
+                                    <option value="">
+                                        Select department
+                                    </option>
+
+                                </select>
+
+                                <small
+                                    class="field-error"
+                                    id="departmentError"
+                                ></small>
+
+                            </div>
+
+
+                            <!-- DESIGNATION -->
+
+                            <div class="form-field">
+
+                                <label for="designation">
+                                    Designation
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="designation"
+                                    name="designation"
+                                    placeholder="e.g. Software Engineer"
+                                    maxlength="100"
+                                >
+
+                            </div>
+
+
+                            <!-- JOINING DATE -->
+
+                            <div class="form-field">
+
+                                <label for="joiningDate">
+                                    Joining Date
+                                </label>
+
+                                <input
+                                    type="date"
+                                    id="joiningDate"
+                                    name="joiningDate"
+                                >
+
+                            </div>
+
+
+                            <!-- STATUS -->
+
+                            <div class="form-field">
+
+                                <label for="status">
+                                    Account Status
+                                </label>
+
+                                <select
+                                    id="status"
+                                    name="status"
+                                >
+
+                                    <option value="ACTIVE">
+                                        Active
+                                    </option>
+
+                                    <option value="INACTIVE">
+                                        Inactive
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ==================================
+                         LOGIN INFORMATION
+                    =================================== -->
+
+                    <div
+                        class="form-section"
+                        id="loginSection"
+                    >
+
+                        <div class="section-heading">
+
+                            <div class="section-number">
+                                03
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Login Information
+                                </h3>
+
+                                <p>
+                                    Credentials for employee access.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+
+                            <!-- USERNAME -->
+
+                            <div class="form-field">
+
+                                <label for="username">
+                                    Username
+                                    <span>*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="username"
+                                    name="username"
+                                    placeholder="Enter login username"
+                                    maxlength="100"
+                                >
+
+                                <small
+                                    class="field-help"
+                                >
+                                    Used by the employee to sign in.
+                                </small>
+
+                                <small
+                                    class="field-error"
+                                    id="usernameError"
+                                ></small>
+
+                            </div>
+
+
+                            <!-- PASSWORD -->
+
+                            <div class="form-field">
+
+                                <label for="password">
+                                    Temporary Password
+                                    <span>*</span>
+                                </label>
+
+                                <div class="password-wrapper">
+
+                                    <input
+                                        type="password"
+                                        id="password"
+                                        name="password"
+                                        placeholder="Enter temporary password"
+                                        minlength="6"
+                                    >
+
+                                    <button
+                                        type="button"
+                                        id="togglePassword"
+                                        class="password-toggle"
+                                    >
+                                        Show
+                                    </button>
+
+                                </div>
+
+                                <small class="field-help">
+                                    The employee can use this password
+                                    for their first login.
+                                </small>
+
+                                <small
+                                    class="field-error"
+                                    id="passwordError"
+                                ></small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ==================================
+                         ERROR MESSAGE
+                    =================================== -->
+
+                    <div
+                        class="form-alert hidden"
+                        id="formError"
+                    >
+                    </div>
+
+
+                    <!-- ==================================
+                         FORM ACTIONS
+                    =================================== -->
+
+                    <div class="form-actions">
+
+                        <button
+                            type="button"
+                            class="secondary-button"
+                            id="cancelButton"
+                        >
+                            Cancel
+                        </button>
+
+                        <button
+                            type="submit"
+                            class="primary-button"
+                            id="saveEmployeeButton"
+                        >
+                            <span id="saveButtonText">
+                                Create Employee
+                            </span>
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="../js/config.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/employee-form.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Scan QR | Atluri ASCEND™</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/employee-qr-scanner.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/responsive.css"
+    >
+</head>
+
+<body class="employee-scanner-page">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside
+        class="employee-sidebar"
+        id="employeeSidebar"
+    >
+
+        <div class="employee-brand">
+
+            <div class="employee-brand-logo">
+                <img
+                    src="../assets/images/atluri-logo.png"
+                    alt="Atluri ASCEND™"
+                >
+            </div>
+
+            <div class="employee-brand-text">
+                <strong>Atluri ASCEND™</strong>
+                <span>Employee Portal</span>
+            </div>
+
+        </div>
+
+
+        <nav class="employee-navigation">
+
+            <a
+                href="employee-dashboard.html"
+                class="employee-nav-item"
+            >
+                <span class="employee-nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="employee-qr-scanner.html"
+                class="employee-nav-item active"
+            >
+                <span class="employee-nav-icon">▣</span>
+                <span>Scan QR</span>
+            </a>
+
+
+            <a
+                href="employee-attendance.html"
+                class="employee-nav-item"
+            >
+                <span class="employee-nav-icon">◷</span>
+                <span>Attendance</span>
+            </a>
+
+
+            <a
+                href="employee-profile.html"
+                class="employee-nav-item"
+            >
+                <span class="employee-nav-icon">♙</span>
+                <span>My Profile</span>
+            </a>
+
+        </nav>
+
+
+        <div class="employee-sidebar-bottom">
+
+            <div class="employee-security-note">
+
+                <span class="security-dot"></span>
+
+                <div>
+                    <strong>Secure Session</strong>
+                    <small>
+                        Your account is protected
+                    </small>
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="employee-logout-button"
+                id="logoutButton"
+            >
+                <span>↪</span>
+                <span>Sign Out</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="employee-main">
+
+        <!-- TOPBAR -->
+
+        <header class="employee-topbar">
+
+            <div class="employee-topbar-left">
+
+                <button
+                    type="button"
+                    class="employee-mobile-menu"
+                    id="mobileMenuButton"
+                    aria-label="Open menu"
+                >
+                    ☰
+                </button>
+
+                <div>
+
+                    <span class="employee-topbar-label">
+                        Employee Portal
+                    </span>
+
+                    <h1>Scan QR Code</h1>
+
+                </div>
+
+            </div>
+
+
+            <div class="employee-topbar-right">
+
+                <div class="employee-date">
+
+                    <span class="date-icon">
+                        ◷
+                    </span>
+
+                    <span id="currentDate">
+                        —
+                    </span>
+
+                </div>
+
+
+                <div class="employee-user">
+
+                    <div
+                        class="employee-avatar"
+                        id="employeeAvatar"
+                    >
+                        —
+                    </div>
+
+                    <div class="employee-user-info">
+
+                        <strong id="currentUsername">
+                            Employee
+                        </strong>
+
+                        <span>
+                            Employee
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             CONTENT
+        ================================================== -->
+
+        <section class="scanner-content">
+
+            <!-- PAGE INTRO -->
+
+            <div class="scanner-intro">
+
+                <span class="section-eyebrow">
+                    Attendance
+                </span>
+
+                <h2>
+                    Scan the entrance QR code
+                </h2>
+
+                <p>
+                    Scan the dynamic QR code displayed
+                    at the office entrance to record your
+                    check-in or check-out.
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 SCANNER AREA
+            ================================================== -->
+
+            <div class="scanner-layout">
+
+                <!-- CAMERA CARD -->
+
+                <div class="scanner-card">
+
+                    <div class="scanner-card-header">
+
+                        <div>
+
+                            <span class="section-eyebrow">
+                                QR Scanner
+                            </span>
+
+                            <h3>
+                                Camera Scanner
+                            </h3>
+
+                        </div>
+
+
+                        <span
+                            class="scanner-status"
+                            id="scannerStatus"
+                        >
+                            Ready
+                        </span>
+
+                    </div>
+
+
+                    <!-- CAMERA -->
+
+                    <div
+                        class="camera-container"
+                        id="cameraContainer"
+                    >
+
+                        <video
+                            id="cameraVideo"
+                            autoplay
+                            playsinline
+                            muted
+                        ></video>
+
+
+                        <div
+                            class="camera-placeholder"
+                            id="cameraPlaceholder"
+                        >
+
+                            <div class="camera-placeholder-icon">
+                                ▣
+                            </div>
+
+                            <strong>
+                                Camera access required
+                            </strong>
+
+                            <span>
+                                Allow camera access to scan
+                                the entrance QR code.
+                            </span>
+
+                            <button
+                                type="button"
+                                class="start-camera-button"
+                                id="startCameraButton"
+                            >
+                                Start Camera
+                            </button>
+
+                        </div>
+
+
+                        <!-- SCANNER FRAME -->
+
+                        <div
+                            class="scanner-frame"
+                            id="scannerFrame"
+                            hidden
+                        >
+
+                            <span class="corner top-left"></span>
+                            <span class="corner top-right"></span>
+                            <span class="corner bottom-left"></span>
+                            <span class="corner bottom-right"></span>
+
+                            <div class="scanner-line"></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SCANNER MESSAGE -->
+
+                    <div
+                        class="scanner-message"
+                        id="scannerMessage"
+                    >
+                        Position the QR code inside the frame.
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="stop-camera-button"
+                        id="stopCameraButton"
+                        hidden
+                    >
+                        Stop Camera
+                    </button>
+
+                </div>
+
+
+                <!-- STATUS CARD -->
+
+                <div class="scanner-side-column">
+
+                    <div class="attendance-action-card">
+
+                        <span class="section-eyebrow">
+                            Today's Action
+                        </span>
+
+                        <h3 id="actionTitle">
+                            Ready to scan
+                        </h3>
+
+                        <p id="actionDescription">
+                            Scan the QR code at the entrance.
+                            The system will automatically
+                            determine whether you are checking
+                            in or checking out.
+                        </p>
+
+
+                        <div
+                            class="action-state"
+                            id="actionState"
+                        >
+
+                            <span class="state-dot"></span>
+
+                            <span id="actionStateText">
+                                Waiting for scan
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- INSTRUCTIONS -->
+
+                    <div class="scanner-instructions">
+
+                        <div class="info-card-heading">
+
+                            <span class="section-eyebrow">
+                                How it works
+                            </span>
+
+                            <h3>
+                                Three simple steps
+                            </h3>
+
+                        </div>
+
+
+                        <div class="instruction-item">
+
+                            <div class="instruction-number">
+                                01
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Open the scanner
+                                </strong>
+
+                                <span>
+                                    Allow camera access when
+                                    prompted.
+                                </span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="instruction-item">
+
+                            <div class="instruction-number">
+                                02
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Scan the QR
+                                </strong>
+
+                                <span>
+                                    Position the entrance QR
+                                    inside the scanner frame.
+                                </span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="instruction-item">
+
+                            <div class="instruction-number">
+                                03
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Confirm attendance
+                                </strong>
+
+                                <span>
+                                    Wait for the successful
+                                    confirmation.
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULT MODAL
+            ================================================== -->
+
+            <div
+                class="scanner-result-overlay"
+                id="resultOverlay"
+                hidden
+            >
+
+                <div
+                    class="scanner-result-card"
+                    id="resultCard"
+                >
+
+                    <div
+                        class="result-icon"
+                        id="resultIcon"
+                    >
+                        ✓
+                    </div>
+
+
+                    <span
+                        class="result-label"
+                        id="resultLabel"
+                    >
+                        Attendance
+                    </span>
+
+
+                    <h2 id="resultTitle">
+                        Check-in successful
+                    </h2>
+
+
+                    <p id="resultMessage">
+                        Your attendance has been recorded.
+                    </p>
+
+
+                    <div class="result-details">
+
+                        <div class="result-detail">
+
+                            <span>
+                                Time
+                            </span>
+
+                            <strong id="resultTime">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-detail">
+
+                            <span>
+                                Location
+                            </span>
+
+                            <strong id="resultLocation">
+                                Main Entrance
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="result-close-button"
+                        id="resultCloseButton"
+                    >
+                        Continue
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ERROR
+            ================================================== -->
+
+            <div
+                class="scanner-error"
+                id="scannerError"
+                hidden
+            >
+
+                <strong>
+                    Scanner error
+                </strong>
+
+                <span id="scannerErrorMessage">
+                    Something went wrong.
+                </span>
+
+                <button
+                    type="button"
+                    id="scannerErrorClose"
+                >
+                    Dismiss
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer class="employee-footer">
+
+            <span>
+                © 2026 Atluri ASCEND™
+            </span>
+
+            <span>
+                Secure Employee Attendance Portal
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <!-- =====================================================
+         QR DECODER LIBRARY
+    ====================================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"
+    ></script>
+
+
+    <!-- =====================================================
+         SCRIPTS
+    ====================================================== -->
+
+    <script src="../js/config.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/employee-qr-scanner.js"></script>
+
+</body>
+</html>
